@@ -7,8 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js">
+
     <!-- link css -->
-    <link rel="stylesheet" href="/assets/css/pembaharuan.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
+    <link rel="stylesheet" href="assets/css/pembaharuan.css">
+    <link rel="stylesheet" href="assets/css/zaoslider.css">
 
 </head>
 
@@ -23,9 +29,9 @@
 
         <!-- {{-- carousel --}} -->
         <div class="owl-carousel owl-theme" id="one">
-            <div class="item"> <img src="{{ asset('img/img1.jpg') }}"></div>
-            <div class="item"> <img src="{{ asset('img/img2.jpg') }}"></div>
-            <div class="item"> <img src="{{ asset('img/img3.jpg') }}"></div>
+            <div class="item"> <img src="img/img2.jpg"></div>
+            <div class="item"> <img src="img/img3.jpg"></div>
+            <div class="item"> <img src="img/img1.jpg"></div>
         </div>
 
         <!-- {{-- pembaharuan harian --}} -->
