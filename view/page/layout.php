@@ -40,9 +40,7 @@
 </head>
 
 
-
 <body>
-
 
     <div class="superNav border-bottom py-2 bg-light">
         <div class="container">
@@ -172,10 +170,7 @@
             </div>
         </div>
     </footer>
-
-
     
-
     <script src="assets/js/carousel.js'"></script>
     <script src="assets/js/mangaplus.js'"></script>
 

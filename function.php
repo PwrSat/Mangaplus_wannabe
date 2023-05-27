@@ -1,3 +1,7 @@
+<!-- database -->
+<!-- database -->
+<!-- database -->
+
 <?php
     if(!isset($_SESSION)){
         session_start();
@@ -14,3 +18,9 @@
     }
 
 ?>
+
+
+<!-- fungsi fungsi -->
+<!-- fungsi fungsi -->
+<!-- fungsi fungsi -->
+

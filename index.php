@@ -1,3 +1,6 @@
+<?php 
+    require_once "function.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,8 +45,8 @@
 
 <body>
     
-     <?php
-    include "layout/navbar_page.php";
+    <?php
+    include_once "layout/navbar_page.php";
     ?> 
 
    

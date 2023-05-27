@@ -1,6 +1,22 @@
-@extends('page.viewer.layout2')
+<?php 
+    require_once "../../../function.php";
+?>
+<!DOCTYPE html>
+<html lang="en">
 
-@section('content')
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <?php
+    include_once 'layout_view/navbar';
+    ?>
+
     {{-- isi konten --}}
     <div class="styles-module_mainContainer_2tQWW">
         <div class="TitleDetail-module_mainContainer_1niDR">
@@ -100,13 +116,13 @@
                                             data-src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400"
                                             src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400"
                                             lazy="loaded">
-                                        <p class="ChapterListItem-module_name_alreadyRead_1HYKk">{{ $chapter->chapter_number }}</p>
+                                        <p class="ChapterListItem-module_name_alreadyRead_1HYKk">
+                                            {{ $chapter->chapter_number }}</p>
                                         <br>
                                         <p class="ChapterListItem-module_date_alreadyRead_31MGZ">Jan 20, 2019</p>
-                                    </div><a
-                                        href="#"class="ChapterListItem-module_commentContainer_1P6qt"><img
-                                            src="{{ asset('assets/img/btn_comment@4x.188ef5f1.svg') }}" alt="commentIcon"
-                                            class="ChapterListItem-module_commentIcon_3lw4k"></a>
+                                    </div><a href="#"class="ChapterListItem-module_commentContainer_1P6qt"><img
+                                            src="{{ asset('assets/img/btn_comment@4x.188ef5f1.svg') }}"
+                                            alt="commentIcon" class="ChapterListItem-module_commentIcon_3lw4k"></a>
                                     <div class="ChapterListItem-module_limitContainer_2JLZi"></div>
                                 </div>
                             @endforeach
@@ -143,4 +159,11 @@
             </div>
         </div>
     </div>
-@endsection
+
+    <?php
+    include_once 'layout_view/footer';
+    ?>
+
+</body>
+
+</html>

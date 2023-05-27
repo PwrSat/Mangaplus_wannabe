@@ -1,3 +1,7 @@
+<?php 
+    require_once "../../function.php";
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,18 +11,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-  <!-- {{-- css online/library --}} -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
- 
+    <!-- {{-- css online/library --}} -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 
     <!-- {{-- css file --}} -->
     <link rel="stylesheet" href="../../assets/css/layout.css">
     <link rel="stylesheet" href="../../assets/css/pembaharuan.css">
     <link rel="stylesheet" href="../../assets/css/mangaplus.css">
     <link rel="stylesheet" href="../../assets/css/zaoslider.css">
-    
+
     <style>
         .title-wrapper {
             display: inline-block;
@@ -41,10 +45,10 @@
 
 
 <body>
-    
-     <?php
-    include "../../layout/navbar_page.php";
-    ?> 
+
+    <?php
+    include "layout_page/navbar_page.php";
+    ?>
 
     <div class="container">
         <!-- {{-- isi konten disini ya --}} -->
@@ -55,8 +59,7 @@
                     <nav class="module-toggle">
                         <ul>
                             <li class="module-toggleitem">
-                                <a href="www.google.com" aria-current="page"
-                                    class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
+                                <a href="www.google.com" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
                             </li>
                             <li class="module-toggleitem">
                                 <a href="/manga_list/hot" class="">Paling Dilihat</a>
@@ -67,38 +70,28 @@
                         </ul>
                     </nav>
                 </div>
-                @php $i=1; @endphp
-                @foreach ($mangas as $manga)
-                    <div class="title-wrapper">
-                        <div class="title-module">
-                            <a href="{{route ('page.titles', ['id' => $manga->id])}}" class="all-title">
-                              <img class="all-title-image" src="../assets/manga-cover/{{ $manga->cover }}">
-                                <div class="all-title-lang">
-                                    <span title="English" class="">{{$manga->bahasa}}</span>
-                                </div>
-                                <p class="title-judul">{{ $manga->title }}</p>
-                                <p class="title-author">{{ $manga->author_id }}</p>
-                            </a>
-                        </div>
+
+                <div class="title-wrapper">
+                    <div class="title-module">
+                        <a href="{{route ('page.titles', ['id' => $manga->id])}}" class="all-title">
+                            <img class="all-title-image" src="../assets/manga-cover/{{ $manga->cover }}">
+                            <div class="all-title-lang">
+                                <span title="English" class=""></span>
+                            </div>
+                            <p class="title-judul"></p>
+                            <p class="title-author"></p>
+                        </a>
                     </div>
-                    @php $i++; @endphp
-                @endforeach
-
-
-
+                </div>
             </div>
         </div>
-
-
-
-
     </div>
 
     <?php
-    include "../../layout/footer_page.php";
+    include "layout_page/footer_page.php";
     ?>
 
-<!-- </div> -->
+    <!-- </div> -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
