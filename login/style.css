@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.container{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightgoldenrodyellow;
+}
+.form{
+    max-width: 430px;
+    width: 100%;
+    padding: 30px;
+    border-radius: 6px;
+    background: white;
+}
+header{
+    font-size: 28px;
+    font-weight: 600;
+    color: black;
+    text-align: center;
+}
+form{
+    margin-top: 30px;
+}
+form .field{
+    position: relative;
+    height: 45px;
+    width: 100%;
+    margin-top: 20px;
+}
+.field input,
+.field button{
+    height: 100%;
+    width: 100%;
+    border: none;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+.field input{
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid gray;
+}
+.field input:focus{
+    border-bottom-width: 2px;
+}
+.eye-icon{
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: grey;
+    cursor: pointer;
+    padding: 5px;
+}
+.form .button input{
+    color: white;
+    background-color: burlywood;
+    cursor: pointer;
+    position: relative;
+    height: 45px;
+    width: 100%;
+    margin-top: 20px;
+    outline: none;
+    padding: 0 15px;
+    border: 1px solid gray;
+    font-size: 16px;
+    font-weight: 400;
+    border-radius: 6px;
+}
+form .button input:hover{
+    background-color: #ccc;
+}
+.form-link{
+    text-align: center;
+    margin-top: 10px;
+}
+.form-link span,
+.form-link a{
+    font-size: 14px;
+    font-weight: 400;
+}
+.form a{
+    color: blue;
+    text-decoration: none;
+}
+.form a:hover{
+    text-decoration: underline;
+}

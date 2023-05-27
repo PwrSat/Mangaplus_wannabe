@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #ffd600;
+        stroke: #ffd600;
+        stroke-width: 1px;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="book1" class="cls-1" d="M57,12v7H54V12H47V9h7V2h3V9h7v3H57ZM44.874,63.807L36,30.69V64H0V5H24V19h8.868L29.6,6.817,42.126,3.193,57.4,60.183ZM12,7H2V62H12V7ZM23,19V7H13V62H23V19Zm1,2V62H34V23.225L33.4,21H24ZM40.712,5.643L32.053,8.231,46.288,61.357l8.659-2.588Z"/>
+</svg>

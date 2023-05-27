@@ -1,0 +1,270 @@
+#neubar {
+    background-color:#151414 !important;
+    box-shadow: 4px 6px 12px rgba(0,0,0,0.4);
+  }
+
+
+  :root {
+    --color-white: #fff;
+    --color-black: #191919;
+    --color-gray: #505050;
+    --color-dark-gray: #323232;
+    --color-dark-red: #5d0914;
+    --color-gray-dk: #1a1a1a;
+    --color-gray-lt: #6e6e6e;
+    --color-gray-hlt: #e6e6e6;
+    --color-gray-p: #f6f6f6;
+    --color-green: #51c300;
+    --color-red: #dc0914;
+    --color-menu: #b00914;
+    --color-yellow: #ffd600;
+    --color-small-impact: #bebebe;
+    --color-base: var(--color-white);
+    --color-link: var(--color-green);
+    --color-link-visited: none;
+    --color-link-hover: none;
+    --color-link-active: none;
+    --color-success: none;
+    --color-danger: none;
+    --color-warning: var(--color-red);
+    --color-info: var(--color-gray);
+    --color-primary: var(--color-green);
+    --color-secondary: none;
+    --color-accent: none;
+    --color-selected: var(--color-gray-p);
+    --color-modal: rgba(0,0,0,0.3);
+    --hover-opacity: 0.8;
+    --already-read-opacity: 0.5;
+    --color-text: var(--color-black);
+    --color-text-outlined: var(--color-white);
+    --color-tip: var(--color-gray-dk);
+    --color-line: var(--color-gray-lt);
+    --color-info-layer1: var(--color-gray-p);
+    --color-info-layer2: var(--color-white);
+    --color-header: var(--color-black);
+    --color-card: var(--color-white);
+    --color-card-header: var(--color-black);
+    --font-size-xxs: none;
+    --font-size-xs: 0.6rem;
+    --font-size-s: 0.8rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.2rem;
+    --font-size-xl: 1.4rem;
+    --font-size-xxl: 1.6rem;
+    --font-size-xxxl: 1.8rem;
+    --font-size-xxxxl: 2rem;
+    --font-weight-default: 400;
+    --font-weight-bold: 700;
+    --space: 0.5rem;
+    --line-width: 1px;
+    --line-style: solid;
+    --radius: 2px;
+    --border: var(--line-width) var(--line-style) var(--color-line);
+    --icon-size: 6px;
+    --hover-feedback-opacity: 0.7;
+    --hover-animation-duration: 0.1s;
+    --hover-animation-timing: ease-out;
+    --hover-animation: var(--hover-animation-duration) var(--hover-animation-timing);
+    --fade-animation-duration: 0.2s;
+    --fade-animation-timing: linear;
+    --fade-animation: var(--fade-animation-duration) var(--fade-animation-timing);
+    --z-modal: 100;
+    @custom-media --breakpoint-s (min-width: 768 px)
+  }
+
+  abbr,address,article,aside,audio,b,blockquote,body,canvas,caption,cite,code,dd,del,details,dfn,div,dl,dt,em,fieldset,figcaption,figure,footer,form,h1,h2,h3,h4,h5,h6,header,hgroup,html,i,iframe,img,ins,kbd,label,legend,li,mark,menu,nav,object,ol,p,pre,q,samp,section,small,span,strong,sub,summary,sup,table,tbody,td,tfoot,th,thead,time,tr,ul,var,video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent
+  }
+
+  a {
+    font-size:14px;
+    font-weight:700;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
+    text-decoration: none;
+  }
+
+  html {
+    overflow-x: hidden
+  }
+  
+  *,:after,:before {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box
+  }
+  
+  #last-page {
+    height: 100vh
+  }
+  
+  article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+    display: block
+  }
+  
+  nav ul {
+    list-style: none
+  }
+
+  body {
+    background-color: #191919;
+    color: #fff;
+    font-family: Roboto,sans-serif;
+    font-weight: 500;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    line-height: 1;
+  }
+  
+  .superNav {
+    font-size:13px;
+  }
+  .form-control {
+    outline:none !important;
+    box-shadow: none !important;
+  }
+  @media screen and (max-width:540px){
+    .centerOnMobile {
+      text-align:center
+    }
+  }
+  ul {
+    margin: 0px;
+    padding: 0px;
+  }
+  .footer-section {
+  background: #151414;
+  position: relative;
+  }
+  
+  .footer-content {
+  position: relative;
+  z-index: 2;
+  }
+  .footer-pattern img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 330px;
+  background-size: cover;
+  background-position: 100% 100%;
+  }
+  .footer-logo {
+  margin-bottom: 30px;
+  }
+  .footer-logo img {
+    max-width: 200px;
+  }
+  .footer-text p {
+  margin-bottom: 14px;
+  font-size: 14px;
+      color: #7e7e7e;
+  line-height: 28px;
+  }
+  .footer-social-icon span {
+  color: #fff;
+  display: block;
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 20px;
+  }
+  .footer-social-icon a {
+  color: #fff;
+  font-size: 16px;
+  margin-right: 15px;
+  }
+  .footer-social-icon i {
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  line-height: 38px;
+  border-radius: 50%;
+  }
+  .facebook-bg{
+  background: #3B5998;
+  }
+  .twitter-bg{
+  background: #55ACEE;
+  }
+  .google-bg{
+  background: #DD4B39;
+  }
+  .footer-widget-heading h3 {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 40px;
+  position: relative;
+  }
+  .footer-widget-heading h3::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -15px;
+  height: 2px;
+  width: 50px;
+  background: #ff5e14;
+  }
+  .footer-widget ul li {
+  display: inline-block;
+  width: 50%;
+  margin-bottom: 12px;
+  float: left;
+  }
+  
+  .footer-widget ul li a:hover{
+  color: #ff5e14;
+  }
+  .footer-widget ul li a {
+  color: #878787;
+  text-transform: capitalize;
+  }
+  .subscribe-form {
+  position: relative;
+  overflow: hidden;
+  }
+  .subscribe-form input {
+  width: 100%;
+  padding: 14px 28px;
+  background: #2E2E2E;
+  border: 1px solid #2E2E2E;
+  color: #fff;
+  }
+  .subscribe-form button {
+    position: absolute;
+    right: 0;
+    background: #ff5e14;
+    padding: 13px 20px;
+    border: 1px solid #ff5e14;
+    top: 0;
+  }
+  .subscribe-form button i {
+  color: #fff;
+  font-size: 22px;
+  transform: rotate(-6deg);
+  }
+  
+  .footer-menu li {
+  display: inline-block;
+  margin-left: 20px;
+  }
+  .footer-menu li:hover a{
+  color: #ff5e14;
+  }
+  .footer-menu li a {
+  font-size: 14px;
+  color: #878787;
+  }
+
+  
+
+  

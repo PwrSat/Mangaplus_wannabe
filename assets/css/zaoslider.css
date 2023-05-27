@@ -1,0 +1,221 @@
+.zao {
+    overflow: hidden
+}
+
+.zao,.zao .zao-surface {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative
+}
+
+.zao .zao-surface {
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d
+}
+
+.zao .zao-surface .zao-container {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0
+}
+
+.zao .zao-surface .zao-container .zao-pages-container {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.zao .zao-surface .zao-container .zao-page {
+    margin: 0;
+    padding: 0;
+    overflow: hidden
+}
+
+.zao .zao-surface .zao-container .zao-page .zao-image-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%
+}
+
+.zao .zao-surface .zao-container .zao-page .zao-image {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    vertical-align: middle;
+    -o-object-fit: contain;
+    object-fit: contain
+}
+
+.zao .zao-mask {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 5;
+    background: #000;
+    pointer-events: none
+}
+
+.zao .zao-mask.is-hidden {
+    display: none
+}
+
+.zao .zao-mask .zao-mask-container {
+    width: 100%;
+    height: 100%
+}
+
+.zao .zao-mask .zao-mask-container .zao-mask-center-text {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #fff
+}
+
+.zao-slider {
+    z-index: 20
+}
+
+.zao-slider.is-hidden {
+    display: none
+}
+
+.zao-slider .zao-slider-container {
+    position: relative;
+    width: 100%;
+    background: rgba(0,0,0,.3);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.zao-slider .zao-slider-container .zao-slider-bar-next {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0
+}
+
+.zao-slider .zao-slider-container .zao-slider-bar-previous {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 1 auto;
+    flex: 0 1 auto;
+    background: #eb3
+}
+
+.zao-slider .zao-slider-container .zao-slider-button-container {
+    width: 0;
+    height: 100%;
+    position: relative
+}
+
+.zao-slider .zao-slider-container .zao-slider-button-container .zao-slider-button-gripper {
+    cursor: pointer;
+    position: absolute
+}
+
+.zao-slider .zao-slider-container .zao-slider-button-container .zao-slider-button {
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    position: absolute;
+    left: 50%;
+    top: 50%
+}
+
+.zao-slider .zao-slider-container .zao-slider-button-container .zao-slider-button.default {
+    cursor: pointer;
+    border-radius: 50%;
+    background: #777;
+    width: 30px;
+    height: 30px
+}
+
+.zao-pagination {
+    z-index: 10;
+    pointer-events: none;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
+}
+
+.zao-pagination.is-hidden {
+    display: none
+}
+
+.zao-pagination .zao-pagination-container {
+    width: 200px;
+    height: 200px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background: rgba(0,0,0,.2);
+    border-radius: 50%
+}
+
+.zao-pagination .zao-pagination-container .zao-pagination-current-page,.zao-pagination .zao-pagination-container .zao-pagination-total-page {
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 0px;
+    flex: 1 0 0;
+    -webkit-transform-origin: center;
+    transform-origin: center;
+    text-align: center
+}
+
+.zao-pagination .zao-pagination-container .zao-pagination-current-page {
+    color: #000;
+    font-weight: 700
+}
+
+.zao-pagination .zao-pagination-container .zao-pagination-total-page {
+    color: #555
+}
+
+.zao-pagination .zao-pagination-container .zao-pagination-divider {
+    width: 5px;
+    height: 100%;
+    background: #333;
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 auto;
+    flex: 0 0 auto;
+    margin: 0 -30px
+}
