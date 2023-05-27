@@ -19,9 +19,9 @@
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
     {{-- css file --}}
-    <link rel="stylesheet" href="{{ asset('assets/css-viewer/titles.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css-viewer/titles2.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/layout.css') }}">
+    <link rel="stylesheet" href="assets/css-viewer/titles.css">
+    <link rel="stylesheet" href="assets/css-viewer/titles2.css">
+    <link rel="stylesheet" href="assets/css/layout.css">
 
 </head>
 
@@ -171,7 +171,7 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/carousel.js') }}"></script>
+    <script src="assets/js/carousel.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"
         integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ=="

@@ -1,3 +1,5 @@
+<!-- ini gadipake ya -->
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +10,7 @@
   <title>Document</title>
 
   <!-- link css -->
-  <link rel="stylesheet" href="../../assets/css/pembaharuan.css">
+  <link rel="stylesheet" href="assets/css/pembaharuan.css">
   
 </head>
 

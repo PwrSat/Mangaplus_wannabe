@@ -24,7 +24,7 @@
     <meta name="twitter:image" content="https://sp.shonenjump.com/mangaplus/whatismangaplus/img/og_tw.jpg">
     <!-- * Twitter カード用 設定 ここまで * -->
 
-    <link rel="stylesheet" href="assets/css/tentang.css}}">
+    <link rel="stylesheet" href="../assets/css/tentang.css">
 
 
     <script>
@@ -61,7 +61,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="img-responsive">
-                    <img src="{{ asset('assets/img/sp_top.jpg') }}" alt="" width="100%" />
+                    <img src="assets/img/tentang/sp_top.jpg" alt="" width="100%" />
                 </div>
             </div>
         </div>
@@ -75,12 +75,12 @@
                 <li>
                     <a href="http://twitter.com/share?url=https://mangaplus.shueisha.co.jp/&text=WHAT'S+IS+MANGA+Plus&hashtags=MANGA Plus&via=shonenjump_plus&related=関連アカウント"
                         target="_blank"><i class="demo-icon icon-twitter-1"></i><img
-                            src="{{ asset('assets/img/btn_twi.png') }}" width="100%"></a>
+                            src="../assets/img/tentang/btn_twi.png" width="100%"></a>
                 </li>
                 <li>
                     <a href="http://www.facebook.com/share.php?u=https://mangaplus.shueisha.co.jp/"
                         onclick="window.open(this.href, 'FBwindow', 'width=650, height=450, menubar=no, toolbar=no, scrollbars=yes'); return false;"
-                        target="_blank"><img src="{{ asset('assets/img/btn_fb.png') }}" width="100%"></a>
+                        target="_blank"><img src="../assets/img/tentang/btn_fb.png" width="100%"></a>
                 </li>
             </ul>
         </div>
@@ -94,7 +94,7 @@
             </p>
         </div>
 
-        <div class="partition_bg"><img src="{{ asset('assets/img/bg_1.jpg') }}" alt="" /></div>
+        <div class="partition_bg"><img src="../assets/img/tentang/bg_1.jpg" alt="" /></div>
         <div class="contents">
             <p>
                 If you too want to get excited over manga heroes’ great performances with other readers all over the
@@ -103,7 +103,7 @@
             </p>
         </div>
 
-        <div class="partition_bg"><img src="{{ asset('assets/img/bg_2.jpg') }}" alt="" /></div>
+        <div class="partition_bg"><img src="../assets/img/tentang/bg_2.jpg" alt="" /></div>
         <div class="contents">
             <p>
                 With this service, you can read a many attractive manga series<br>
@@ -113,7 +113,7 @@
             </p>
         </div>
 
-        <div class="partition_bg"><img src="{{ asset('assets/img/bg_3.jpg') }}" alt="" /></div>
+        <div class="partition_bg"><img src="../assets/img/tentang/bg_3.jpg" alt="" /></div>
         <div class="contents">
             <p>
                 <span>There is no time lag either.</span><br>
@@ -122,7 +122,7 @@
             </p>
         </div>
 
-        <div class="partition_bg"><img src="{{ asset('assets/img/bg_4.jpg') }}" alt="" /></div>
+        <div class="partition_bg"><img src="../assets/img/tentang/bg_4.jpg" alt="" /></div>
         <div class="contents">
             <p>
                 <span>“MANGA Plus by SHUEISHA”</span><br>
@@ -133,7 +133,7 @@
             </p>
         </div>
 
-        <div class="partition_bg"><img src="{{ asset('assets/img/bg_5.jpg') }}" alt="" /></div>
+        <div class="partition_bg"><img src="../assets/img/tentang/bg_5.jpg" alt="" /></div>
 
         <div class="contents">
             <p>
@@ -142,11 +142,11 @@
             <div class="message">
                 “Jump’s manga will now be available at the same time all over the world! Now that it’s an official
                 service, there will be a lot to read! Wonderful!”
-                <img src="{{ asset('assets/img/naruto.png') }}" alt="" width="100%" />
+                <img src="../assets/img/tentang/naruto.png" alt="" width="100%" />
             </div>
         </div>
 
-        <div class="partition_bg"><img src="{{ asset('assets/img/bg_6.jpg') }}" alt="" /></div>
+        <div class="partition_bg"><img src="../assets/img/tentang/bg_6.jpg" alt="" /></div>
 
         <div class="contents">
             <div class="highlight">
@@ -174,9 +174,9 @@
 
         <div class="bnr_area">
             <ul>
-                <li class="alpha"><a href="https://mangaplus.shueisha.co.jp/"><img src="img/bnr_web.png"
+                <li class="alpha"><a href="https://mangaplus.shueisha.co.jp/"><img src="../assets/img/bnr_web.png"
                             alt="" width="100%" /></a></li>
-                <li class="alpha"><a href="https://www.facebook.com/mangaplus.en/"><img src="img/bnr_fb.png"
+                <li class="alpha"><a href="https://www.facebook.com/mangaplus.en/"><img src="../assets/img/bnr_fb.png"
                             alt="" width="100%" /></a></li>
             </ul>
         </div>

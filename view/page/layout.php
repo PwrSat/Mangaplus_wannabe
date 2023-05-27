@@ -7,16 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    {{-- css online/library --}}
+    <!-- {{-- css online/library --}} -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 
-    {{-- css file --}}
+    <!-- {{-- css file --}} -->
 
-    <link rel="stylesheet" href="{{ asset('pembaharuan.css') }}">
-    <link rel="stylesheet" href="{{ asset('mangaplus.css') }}">
-    <link rel="stylesheet" href="{{ asset('zaoslider.css') }}">
+    <link rel="stylesheet" href="assets/css/pembaharuan.css'">
+    <link rel="stylesheet" href="assets/css/mangaplus.css'">
+    <link rel="stylesheet" href="assets/css/zaoslider.css'">
 
     <style>
         .title-wrapper {
@@ -38,7 +39,11 @@
 
 </head>
 
+
+
 <body>
+
+
     <div class="superNav border-bottom py-2 bg-light">
         <div class="container">
             <div class="row">
@@ -47,7 +52,7 @@
                     <span class="me-3"><i class="fa-solid fa-phone me-1 text-warning"></i> <strong style="color: black">1-800-123-1234</strong></span>
                 </div>
 
-                {{-- fitur bahasa --}}
+                <!-- {{-- fitur bahasa --}} -->
                 <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
                     <select class="me-3 border-0 bg-light">
                         <option value="english">English</option>
@@ -57,9 +62,10 @@
             </div>
         </div>
     </div>
+    
     <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-dark" id="neubar">
         <div class="container">
-            <a class="navbar-brand" href="#"><img src="{{ asset('img/logomanga.png') }}" height="70">
+            <a class="navbar-brand" href="#"><img src="assets/img/logomanga.png'" height="70">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -75,22 +81,22 @@
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
                 <ul class="navbar-nav ms-auto ">
                     <li class="nav-item">
-                        <a class="nav-link mx-2 text-uppercase {{ request()->is('page/pembaharuan') ? 'active' : '' }}" href="/page/pembaharuan">Pembaharuan</a>
+                        <a class="nav-link mx-2 text-uppercase" href="/page/pembaharuan">Pembaharuan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 text-uppercase {{ request()->is('page/unggulan') ? 'active' : '' }}" href="/page/unggulan">unggulan</a>
+                        <a class="nav-link mx-2 text-uppercase " href="/page/unggulan">unggulan</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 text-uppercase {{ request()->is('page/daftar') ? 'active' : '' }}" href="/page/daftar">Daftar</a>
+                        <a class="nav-link mx-2 text-uppercase" href="/page/daftar">Daftar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 text-uppercase {{ request()->is('creator/maincreators') ? 'active' : '' }}" href="/creator/maincreators">Creators</a>
+                        <a class="nav-link mx-2 text-uppercase" href="/creator/maincreators">Creators</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 text-uppercase {{ request()->is('page/favorite') ? 'active' : '' }}" href="/page/favorite">Favorite</a>
+                        <a class="nav-link mx-2 text-uppercase" href="/page/favorite">Favorite</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link mx-2 text-uppercase {{ request()->is('tentang') ? 'active' : '' }}" href="/tentang">Tentang</a>
+                        <a class="nav-link mx-2 text-uppercase" href="/tentang">Tentang</a>
                     </li>
                 </ul>
                 <div class="ms-auto d-none d-lg-block">
@@ -106,9 +112,6 @@
 
     <br>
 
-    @yield('content')
-
-
     </div>
 
     <br>
@@ -119,7 +122,7 @@
                     <div class="col-xl-4 col-lg-4 mb-50">
                         <div class="footer-widget">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="{{ asset('img/logomanga.png') }}" class="img-fluid" alt="logo"></a>
+                                <a href="index.html"><img src="assets/img/logomanga.png'" class="img-fluid" alt="logo"></a>
                             </div>
                             <div class="footer-text">
                                 <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor
@@ -170,8 +173,11 @@
         </div>
     </footer>
 
-    <script src="{{ asset('js/carousel.js') }}"></script>
-    <script src="{{ asset('js/mangaplus.js') }}"></script>
+
+    
+
+    <script src="assets/js/carousel.js'"></script>
+    <script src="assets/js/mangaplus.js'"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -179,7 +185,6 @@
     </script>
     <script src="https://kit.fontawesome.com/d8ca2bfebc.js" crossorigin="anonymous"></script>
 
-    @yield('script')
 
 </body>
 
