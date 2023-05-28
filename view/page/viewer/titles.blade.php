@@ -1,6 +1,12 @@
-<?php 
-    require_once "../../../function.php";
+<?php
+
+$id = $_GET['id'];
+require_once "../../../function.php";
+
+$result = mysqli_query($koneksi, "select * from mangas where id='$id'");
+
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,18 +15,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css"
+        integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css"
+        integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="../../../assets/css/titles.css">
+    <link rel="stylesheet" href="../../../assets/css/layout.css">
+
 </head>
 
 <body>
 
     <?php
-    include_once 'layout_view/navbar';
+    include_once 'layout_page/navbar_page.php';
     ?>
 
-    {{-- isi konten --}}
+    <!-- isi konten -->
     <div class="styles-module_mainContainer_2tQWW">
         <div class="TitleDetail-module_mainContainer_1niDR">
             <div>
+                <?php
+                    while ($row = mysqli_fetch_array($result)) {
+                ?>
                 <div class="TitleDetailHeader-module_flexContainer_3D03N" sns="[object Object]" updateinfo="1684854000"
                     numberofviews="974399" updatetiming="0" issimulreleased="true">
                     <div class="TitleDetailHeader-module_left1_3C2Fx">
@@ -30,25 +55,28 @@
                         </div>
                         <div class="TitleDetailHeader-module_right1_1o9Bj">
                             <div class="TitleDetailHeader-module_cover_3ljyH">
-                                <img src="{{ asset('assets/manga-cover/' . $mangas->cover) }}" alt=""
-                                    class="TitleDetailHeader-module_coverImage_3rvaT">
+                                <img src="../../../assets/img/cover/<?php echo $row['cover']; ?>" alt="" class="TitleDetailHeader-module_coverImage_3rvaT">
                                 <div><button
                                         class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg">Tambahkan
                                         ke Favorit</button></div>
                             </div>
                             <div class="TitleDetailHeader-module_info_1_7BN">
-                                <h1 class="TitleDetailHeader-module_title_Iy33M">{{ $mangas->title }}</h1>
+                                <h1 class="TitleDetailHeader-module_title_Iy33M"></h1>
                                 <p class="TitleDetailHeader-module_author_3Q2QN"></p>
                                 <div>
                                     <div class="TitleDetailHeader-module_overviewTitleWrapper_3_vMN">
                                         <h6 class="TitleDetailHeader-module_overviewTitle_1X9aO">Ikhtisar</h6>
                                     </div>
-                                    <p class="TitleDetailHeader-module_overview_32fOi">{{ $mangas->sinopsis }}</p>
+                                    <p class="TitleDetailHeader-module_overview_32fOi"><?php echo $row['sinopsis']; ?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <?php
+                }
+                mysqli_close($koneksi);
+                ?>
                 <div class="TitleDetail-module_flexContainer_1oGb4">
                     <topside class="TitleDetail-module_topside_1IIit">
                         <div>
@@ -56,10 +84,8 @@
                             <div class="TitleDetail-module_languages_87lPm"><a href="/titles/100037" aria-current="page"
                                     class="router-link-exact-active router-link-active TitleDetail-module_active_1rFIx"
                                     title="Read in English">English</a><a href="/titles/200098" class=""
-                                    title="Read in English">Español</a><a href="/titles/300002" class=""
-                                    title="Read in English">ภาษาไทย</a><a href="/titles/500001" class=""
-                                    title="Read in English">Português (BR)</a><a href="/titles/700011" class=""
-                                    title="Read in English">Français</a></div>
+                                    title="Read in English">indonesia</a>
+                            </div>
                         </div>
                         <div>
                             <h6 class="TitleDetail-module_updateHeader_Ku5ec">Jadwal Pembaharuan</h6>
@@ -92,15 +118,9 @@
                             <div>
                                 <div class="ChapterList-module_chapterListTitleWrapper_1MLyK">
                                     <h6 class="ChapterList-module_chapterListTitle_3-F05">Daftar Bab</h6>
-                                    <p class="ChapterList-module_numberOfViews_14bIt"><img
-                                            src="{{ asset('assets/img/icon_eye.53d7b892.svg') }}"
-                                            class="ChapterList-module_viewIcon_1p37L">
-                                        @if (!empty($mangas->count))
-                                            {{ $mangas->count }}
-                                        @else
-                                            0
-                                        @endif
-                                    </p>
+                                    <p class="ChapterList-module_numberOfViews_14bIt"><img 
+                                        src="../../../assets/img/icon_eye.53d7b892.svg"
+                                            class="ChapterList-module_viewIcon_1p37L" </p>
                                 </div>
                             </div>
                             <div class="ChapterList-module_chapterHeader_1_HCB">
@@ -109,23 +129,23 @@
                                         src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAjVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8DizOFAAAALnRSTlMAgBj0hwSKyYLihGpbQSAB+/jvptXNX00tCMa+spuYUDkqEujl3a9yVS/mkXkX4MN39wAAAcpJREFUaN7t1mlvgkAQgOGhHKJyQ1G876PH/P+fV+NgBknaxjKTmHTfT65ueBLWXQCTyWR66iyss+DH3CAvsnQ38c86QNnHW4dIHnDn2CgLxYF3vMteCwMjbFW4okD8iu0CUSBEahpGw5Q+vooCHk2YVI27tZEEejRh1BwsJQHaAgkt7AfNHkoC9vX3Pg0Cni0G0MLuaXBSALbX31MaHPkWSS/y+DqY8UYQAxY0YQ6X1siaGLBE6ujCuT5Us1gScLe3Q66PdbnsYVdiu5UsEOd4X0/8gbNoHaZSABfmNqKN1JsrCHCbaIi8yxQAqHY0c++qADy1BB3gs16CIlYCFsjPGg1gnfAeUAFmSIU6AL9agArA70YrJSBAagY6QFUf1MlYCeAMAAb410DUo4kvSsApQ02gmiNqAuMCVYFhiprA5oCoCvRQGShVAX5cTtQAWOElz9UDIMdsBKAIRNMIdADuqQDLbpTcgKT5rdUJAA9/yet6i7y/XJ+BroInscgOfpsj8y9yHr4+A50ER24fOA9en4EOgiO7kwfYagCyQFsYgCzQFgYah53P1/dBA2DBBw2ABR80AH4iWKABsGCBBsCCBQ8BJpPJ9KR9AY4H9+HKSblgAAAAAElFTkSuQmCC"
                                         alt="sort" class="ChapterList-module_sortIcon_1dGE4"></div>
                             </div>
-                            @foreach ($chapters as $chapter)
-                                <div class="ChapterListItem-module_chapterListItem_ykICp">
-                                    <div class="ChapterListItem-module_chapterWrapper_3CxyE"><img alt="thumbnail"
-                                            class="ChapterListItem-module_thumbnail_alreadyRead_1u3_a"
-                                            data-src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400"
-                                            src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400"
-                                            lazy="loaded">
-                                        <p class="ChapterListItem-module_name_alreadyRead_1HYKk">
-                                            {{ $chapter->chapter_number }}</p>
-                                        <br>
-                                        <p class="ChapterListItem-module_date_alreadyRead_31MGZ">Jan 20, 2019</p>
-                                    </div><a href="#"class="ChapterListItem-module_commentContainer_1P6qt"><img
-                                            src="{{ asset('assets/img/btn_comment@4x.188ef5f1.svg') }}"
-                                            alt="commentIcon" class="ChapterListItem-module_commentIcon_3lw4k"></a>
-                                    <div class="ChapterListItem-module_limitContainer_2JLZi"></div>
-                                </div>
-                            @endforeach
+
+                            <div class="ChapterListItem-module_chapterListItem_ykICp">
+                                <div class="ChapterListItem-module_chapterWrapper_3CxyE"><img alt="thumbnail"
+                                        class="ChapterListItem-module_thumbnail_alreadyRead_1u3_a"
+                                        data-src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400"
+                                        src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400"
+                                        lazy="loaded">
+                                    <p class="ChapterListItem-module_name_alreadyRead_1HYKk">
+                                    </p>
+                                    <br>
+                                    <p class="ChapterListItem-module_date_alreadyRead_31MGZ">Jan 20, 2019</p>
+                                </div><a href="#"class="ChapterListItem-module_commentContainer_1P6qt"><img
+                                        src="" alt="commentIcon"
+                                        class="ChapterListItem-module_commentIcon_3lw4k"></a>
+                                <div class="ChapterListItem-module_limitContainer_2JLZi"></div>
+                            </div>
+                           
                         </div>
                     </main>
                     <aside class="TitleDetail-module_sub_3Gl_e">
@@ -161,7 +181,7 @@
     </div>
 
     <?php
-    include_once 'layout_view/footer';
+    include_once 'layout_page/footer_page.php';
     ?>
 
 </body>

@@ -1,5 +1,11 @@
-<?php 
-    require_once "../../function.php";
+<?php
+
+require_once "../../function.php";
+
+$query = "SELECT * FROM mangas"; //memanggil file yang ada di table mangas
+
+$result = mysqli_query($koneksi, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -22,6 +28,7 @@
     <link rel="stylesheet" href="../../assets/css/pembaharuan.css">
     <link rel="stylesheet" href="../../assets/css/mangaplus.css">
     <link rel="stylesheet" href="../../assets/css/zaoslider.css">
+
 
     <style>
         .title-wrapper {
@@ -71,18 +78,27 @@
                     </nav>
                 </div>
 
-                <div class="title-wrapper">
-                    <div class="title-module">
-                        <a href="{{route ('page.titles', ['id' => $manga->id])}}" class="all-title">
-                            <img class="all-title-image" src="../assets/manga-cover/{{ $manga->cover }}">
-                            <div class="all-title-lang">
-                                <span title="English" class=""></span>
-                            </div>
-                            <p class="title-judul"></p>
-                            <p class="title-author"></p>
-                        </a>
+                <?php
+                $no = 1;
+                while ($row = mysqli_fetch_assoc($result)) { //berfungsi untuk melakukan perulangan yang akan   menampilkan data di table
+                ?>
+                    <div class="title-wrapper">
+                        <div class="title-module">
+                            <a href="viewer/titles.blade.php?id=<?php echo $row['id']; ?>" class="all-title">
+                                <img class="all-title-image" src="../../assets/img/cover/<?php echo $row['cover']; ?>">
+                                <div class="all-title-lang">
+                                    <span title="English" class=""><?php echo $row['bahasa']; ?></span>
+                                </div>
+                                <p class="title-judul"><?php echo $row['title']; ?></p>
+                                <p class="title-author"><?php echo $row['author']; ?></p>
+                            </a>
+                        </div>
                     </div>
-                </div>
+                <?php
+                }
+                mysqli_close($koneksi); //untuk mematikan queary atau memutuskan sinyal dari mysql
+                ?>
+
             </div>
         </div>
     </div>
