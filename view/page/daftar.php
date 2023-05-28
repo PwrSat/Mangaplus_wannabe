@@ -84,8 +84,8 @@ $result = mysqli_query($koneksi, $query);
                 ?>
                     <div class="title-wrapper">
                         <div class="title-module">
-                            <a href="viewer/titles.blade.php?id=<?php echo $row['id']; ?>" class="all-title">
-                                <img class="all-title-image" src="../../assets/img/cover/<?php echo $row['cover']; ?>">
+                            <a href="viewer/titles.php?id=<?php echo $row['id']; ?>" class="all-title">
+                                <img class="all-title-image" src="../../assets/storage/cover/<?php echo $row['cover']; ?>">
                                 <div class="all-title-lang">
                                     <span title="English" class=""><?php echo $row['bahasa']; ?></span>
                                 </div>
