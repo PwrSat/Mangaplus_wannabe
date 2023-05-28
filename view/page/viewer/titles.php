@@ -61,8 +61,8 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                                         ke Favorit</button></div>
                             </div>
                             <div class="TitleDetailHeader-module_info_1_7BN">
-                                <h1 class="TitleDetailHeader-module_title_Iy33M"></h1>
-                                <p class="TitleDetailHeader-module_author_3Q2QN"></p>
+                                <h1 class="TitleDetailHeader-module_title_Iy33M"><?php echo $manga['title']; ?></h1>
+                                <p class="TitleDetailHeader-module_author_3Q2QN"><?php echo $manga['author']; ?></p>
                                 <div>
                                     <div class="TitleDetailHeader-module_overviewTitleWrapper_3_vMN">
                                         <h6 class="TitleDetailHeader-module_overviewTitle_1X9aO">Ikhtisar</h6>
