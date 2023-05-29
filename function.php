@@ -9,7 +9,7 @@
     $host = 'localhost';
     $user = 'root';
     $pass = '';
-    $database = 'sbd';
+    $database = 'sbd2';
 
     $koneksi = mysqli_connect($host,$user,$pass,$database);
 

@@ -31,9 +31,13 @@ $resultpages = mysqli_query($koneksi, $querypages);
     <script src="https://kit.fontawesome.com/22dad4dcbd.js" crossorigin="anonymous"></script>
 
     <style>
+        .container{
+            width: 850px;
+        }
         .responsive-image {
             max-width: 100%;
             height: auto;
+            object-fit: cover;
         }
     </style>
 </head>
@@ -41,7 +45,7 @@ $resultpages = mysqli_query($koneksi, $querypages);
 <body class="bg-dark">
 
     <!-- Page Content -->
-    <main class="container text-white">
+    <div class="container">
 
         <div class="bg-dark-1 text-center px-4 pt-4 pb-2 mb-3">
 
@@ -51,6 +55,7 @@ $resultpages = mysqli_query($koneksi, $querypages);
             ?>
              <img src="../../../assets/<?php echo $page['path']; ?>" alt="page-1" class="responsive-image">
 
+            <br>
             <br>
             <?php
             }
