@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2023 at 01:23 PM
+-- Generation Time: May 29, 2023 at 06:36 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.1.17
 
@@ -106,8 +106,11 @@ CREATE TABLE `mangas` (
 --
 
 INSERT INTO `mangas` (`id`, `title`, `sinopsis`, `author`, `cover`, `bahasa`, `count`, `created_at`, `updated_at`) VALUES
-(1, 'kaguya sama', 'Kaguya-sama: Love Is War -Ultra Romantic- mengisahkan tentang Miyuki (diisi suara oleh Makoto Furukawa) yang merupakan seorang ketua siswa akademi di sekolahnya dan juga merupakan seorang anak dari keluarga kaya, memiliki peringkat yang terbaik membuat Miyuki menjadi seorang siswa yang sangat dihormati.', 'Aka Azaka', 'Kcover.jpg', 'indonesia', 84, NULL, '2023-05-28 05:33:19'),
-(2, 'The Breaker', 'Tentang dunia pendekar Korea di zaman modern dimana koalisinya telah dikuasai oleh pendekar culas yang mementingkan ambisi pribadinya. Lalu kehidupan sekolah Shi Woon yang selalu di gencet namun perlahan berubah menjadi kuat. Guru baru yang sifatnya mesum namun memiliki ilmu beladiri yang tinggi. Kelucuan-kelucuan yang disebabkan oleh Chun Woo yang senang merayu guru perempuan namun sering gagal. Diselipkan juga fan services untuk menyegarkan mata. Ada juga bagian yang menyentuh ketika Shi Woon menyadari apa yang dilakukan gurunya selama ini bertujuan untuk melindungi dirinya. Yang kedua karena gambarnya yang bagus sekali. Pertarungan bela diri digambarkan dengan apiknya, gerak-gerak jurus yang begitu detail dan luwes. Penguasaan tenaga dalam, gerakan menghindar, menyerang dan impact terkena pukulan pun terlihat terasa sekali.', 'Jeon Keuk Jin', 'Bcover.jpg', 'indonesia', 2, NULL, '2023-05-22 10:19:39');
+(1, 'kaguya sama', 'Kaguya-sama: Love Is War -Ultra Romantic- mengisahkan tentang Miyuki (diisi suara oleh Makoto Furukawa) yang merupakan seorang ketua siswa akademi di sekolahnya dan juga merupakan seorang anak dari keluarga kaya, memiliki peringkat yang terbaik membuat Miyuki menjadi seorang siswa yang sangat dihormati.', 'Aka Azaka', 'Kcover.jpg', 'indonesia', 88, NULL, '2023-05-28 05:33:19'),
+(2, 'The Breaker', 'Tentang dunia pendekar Korea di zaman modern dimana koalisinya telah dikuasai oleh pendekar culas yang mementingkan ambisi pribadinya. Lalu kehidupan sekolah Shi Woon yang selalu di gencet namun perlahan berubah menjadi kuat. Guru baru yang sifatnya mesum namun memiliki ilmu beladiri yang tinggi. Kelucuan-kelucuan yang disebabkan oleh Chun Woo yang senang merayu guru perempuan namun sering gagal. Diselipkan juga fan services untuk menyegarkan mata. Ada juga bagian yang menyentuh ketika Shi Woon menyadari apa yang dilakukan gurunya selama ini bertujuan untuk melindungi dirinya. Yang kedua karena gambarnya yang bagus sekali. Pertarungan bela diri digambarkan dengan apiknya, gerak-gerak jurus yang begitu detail dan luwes. Penguasaan tenaga dalam, gerakan menghindar, menyerang dan impact terkena pukulan pun terlihat terasa sekali.', 'Jeon Keuk Jin', 'Bcover.jpg', 'indonesia', 10, NULL, '2023-05-22 10:19:39'),
+(3, 'Vinland Saga', 'Ini adalah kisah Thorfinn yang hendak melakukan balas dendam kepada Askeladd yang telah membunuh ayahnya. Tetapi seiring berjalannya cerita, Thorfinn menyadari bahwa ada tujuan lebih besar yang harus ia capai selain balas dendam.', 'Makoto Yukimura', 'Vcover.jpg', 'indonesia', 1, NULL, NULL),
+(4, 'Oshi no Ko', 'Ai yang baru berusia 16 tahun datang dalam keadaan hamil anak kembar. Untuk menyembunyikan kehamilannya, Ai mengumumkan kepada publik bahwa dirinya akan mengambil hiatus selama beberapa waktu. Di tengah kebingungannya, Gorou berjanji akan menjaga dan membantu Ai sampai kelahiran kedua anaknya.', 'AKA AZAKA', 'Ocover.jpg', 'indonesia', 1, NULL, NULL),
+(5, 'Mushoku Tensei ', 'Mengisahkan tentang seorang pria pengangguran dan putus asa yang bereinkarnasi ke dunia fantasi sambil mempertahankan ingatannya, ia bertekad untuk menjalani kehidupan barunya tanpa penyesalan. Seri ini awalnya diterbitkan di situs web berisi novel karya penggunanya Shōsetsuka ni Narō pada tanggal 22 November 2012.', 'RIFUJIN NA MAGONOTE', 'Mcover.jpg', 'indonesia', 0, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -339,7 +342,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `mangas`
 --
 ALTER TABLE `mangas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `migrations`
