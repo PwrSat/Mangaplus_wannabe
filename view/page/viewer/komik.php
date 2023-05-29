@@ -19,7 +19,7 @@ $resultpages = mysqli_query($koneksi, $querypages);
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="V0PNkQK4uDXd28cW8SMmgF5cG1Z2Ruer5PxmmMVv">
 
-    <title>Non non eligendi</title>
+    <title>Baca Manga</title>
     <link rel="shortcut icon" type="image/png" href="http://127.0.0.1:8000/img/favicon.png" />
 
     <!-- Styles -->

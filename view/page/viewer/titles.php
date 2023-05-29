@@ -105,7 +105,14 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                             <div>
                                 <div class="ChapterList-module_chapterListTitleWrapper_1MLyK">
                                     <h6 class="ChapterList-module_chapterListTitle_3-F05">Daftar Bab</h6>
-                                    <p class="ChapterList-module_numberOfViews_14bIt"><img src="../../../assets/img/icon_eye.53d7b892.svg" class="ChapterList-module_viewIcon_1p37L" </p>
+                                    <p class="ChapterList-module_numberOfViews_14bIt"><img src="../../../assets/img/icon_eye.53d7b892.svg" class="ChapterList-module_viewIcon_1p37L">
+                                    <?php
+                                        $count = $manga['count'] + 1;
+                                        $queryUpdateCount = "UPDATE mangas SET count = $count WHERE id = '$id'";
+                                        mysqli_query($koneksi, $queryUpdateCount);
+                                        echo $count;
+                                    ?>
+                                    </p>
                                 </div>
                             </div>
 
@@ -120,16 +127,15 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                             ?>
 
                                 <div class="ChapterListItem-module_chapterListItem_ykICp">
-                                    <div class="ChapterListItem-module_chapterWrapper_3CxyE"><img alt="thumbnail" class="ChapterListItem-module_thumbnail_alreadyRead_1u3_a" 
-                                     src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400" lazy="loaded">
-                                        <a href="komik.php?id=<?php echo $chapter['id']?>">
+                                    <div class="ChapterListItem-module_chapterWrapper_3CxyE"><img alt="thumbnail" class="ChapterListItem-module_thumbnail_alreadyRead_1u3_a" src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400" lazy="loaded">
+                                        <a href="komik.php?id=<?php echo $chapter['id'] ?>">
                                             <p class="ChapterListItem-module_name_alreadyRead_1HYKk"><?php echo $chapter['chapter_number']; ?></p>
                                             <br>
                                             <p class="ChapterListItem-module_date_alreadyRead_31MGZ"><?php echo $chapter['updated_at']; ?></p>
                                         </a>
                                     </div>
                                 </div>
-                                
+
                             <?php
                             }
                             ?>
