@@ -80,6 +80,12 @@ $result = mysqli_query($koneksi, $query);
 
                 <?php
                 $no = 1;
+
+                if(isset($_GET['cari'])){
+                    $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%".
+                    $_GET['cari']."%'");
+                }
+
                 while ($row = mysqli_fetch_assoc($result)) { //berfungsi untuk melakukan perulangan yang akan   menampilkan data di table
                 ?>
                     <div class="title-wrapper">
