@@ -28,7 +28,7 @@ if (isset($_POST["btnlogin"])) {
 
                 <form method="post">
                     <div class="field input-field">
-                        <input type="text" placeholder="Username" class="input" name="username" required autofocus>
+                        <input type="email" placeholder="Email" class="input" name="email" required autofocus>
                     </div>
 
                     <div class="field input-field">

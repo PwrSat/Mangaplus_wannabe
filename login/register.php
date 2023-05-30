@@ -33,9 +33,9 @@ if (isset($_POST["btnregister"])) {
                         <input type="text" placeholder="Username" class="input" name="username" required autofocus>
                     </div>
 
-                    <div class="field input-field">
+                    <!-- <div class="field input-field">
                         <input type="text" placeholder="Name" class="input" name="nama" required autofocus>
-                    </div>
+                    </div> -->
 
                     <div class="field input-field">
                         <input type="password" placeholder="Password" class="password" name="password" id="passinput" required>

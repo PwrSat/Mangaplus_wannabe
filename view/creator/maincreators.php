@@ -24,9 +24,13 @@
 
 
 
-  <br>
+
 
   <div class="container-fluid">
+
+    <?php
+    include_once 'layout_creator/navbar_creators.php';
+    ?>
 
     <!-- {{-- carousel --}} -->
     <div class="owl-carousel owl-theme" id="one">
@@ -183,6 +187,10 @@
         </div>
       </div>
     </div>
+
+    <?php
+    include_once 'layout_creator/footer_creators.php';
+    ?>
 
   </div>
 

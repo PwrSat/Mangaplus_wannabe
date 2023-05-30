@@ -1,3 +1,10 @@
+<?php 
+    require_once "../../function.php";
+    if(empty($_SESSION['user_role'])){
+      header("Location:login.php");
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 

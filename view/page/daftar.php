@@ -59,31 +59,46 @@ $result = mysqli_query($koneksi, $query);
 
     <div class="container">
         <!-- {{-- isi konten disini ya --}} -->
-        <div class="styles-maincontainer">
-            <div class="module-mangalist">
-                <div class="module-header">
-                    <h1 class="module-title module-title-2">Daftar Manga</h1>
-                    <nav class="module-toggle">
-                        <ul>
-                            <li class="module-toggleitem">
-                                <a href="www.google.com" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
-                            </li>
-                            <li class="module-toggleitem">
-                                <a href="/manga_list/hot" class="">Paling Dilihat</a>
-                            </li>
-                            <li class="module-toggleitem">
-                                <a href="/manga_list/updated" class="">Baru</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
-
+        <?php { ?>
+            <div class="styles-maincontainer">
+                <div class="module-mangalist">
+                    <div class="module-header">
+                        <h1 class="module-title module-title-2">Daftar Manga</h1>
+                        <nav class="module-toggle">
+                            <ul>
+                                <li class="module-toggleitem">
+                                    <a href="www.google.com" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
+                                </li>
+                                <li class="module-toggleitem">
+                                    <a href="/view/page/unggulan.php" class="">Paling Dilihat</a>
+                                </li>
+                                <li class="module-toggleitem">
+                                    <a href="/manga_list/updated" class="">Baru</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <?php } ?>
                 <?php
                 $no = 1;
 
-                if(isset($_GET['cari'])){
-                    $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%".
-                    $_GET['cari']."%'");
+                // Menyimpan pilihan bahasa yang dipilih
+                $selectedLanguage = isset($_GET['filter-language']) ? $_GET['filter-language'] : '';
+
+                // Menyiapkan query SQL dengan filter bahasa
+                $query = "SELECT * FROM mangas";
+                if ($selectedLanguage === 'indonesia') {
+                    $query .= " WHERE bahasa = 'indonesia'";
+                } elseif ($selectedLanguage === 'inggris') {
+                    $query .= " WHERE bahasa = 'inggris'";
+                }
+
+                // Menjalankan query SQL
+                $result = mysqli_query($koneksi, $query);
+
+                if (isset($_GET['cari'])) {
+                    $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%" .
+                        $_GET['cari'] . "%'");
                 }
 
                 while ($row = mysqli_fetch_assoc($result)) { //berfungsi untuk melakukan perulangan yang akan   menampilkan data di table
@@ -105,8 +120,8 @@ $result = mysqli_query($koneksi, $query);
                 mysqli_close($koneksi); //untuk mematikan queary atau memutuskan sinyal dari mysql
                 ?>
 
+                </div>
             </div>
-        </div>
     </div>
 
     <?php
