@@ -52,8 +52,14 @@
 
   <div class="container">
     <!-- {{-- isi konten disini ya --}} -->
+    <?php
+                $no = 1;
 
-
+                if(isset($_GET['cari'])){
+                    $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%".
+                    $_GET['cari']."%'");
+                }
+    ?>
     <div class="SubscribedTitles-module_gridContainer_1cbmH">
       <div class="SubscribedTitle-module_contents_2S_dW">
         <div class="SubscribedTitle-module_lang_pivm4">

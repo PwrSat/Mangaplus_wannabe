@@ -36,23 +36,23 @@
         <div class=" collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="../../index.php">Pembaharuan</a>
+                    <a class="nav-link mx-2 text-uppercase" href="index.php">Pembaharuan</a>
 
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase " href="unggulan.php">unggulan</a>
+                    <a class="nav-link mx-2 text-uppercase " href="view/page/unggulan.php">unggulan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="daftar.php">Daftar</a>
+                    <a class="nav-link mx-2 text-uppercase" href="view/page/daftar.php">Daftar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="../creator/maincreators.php">Creators</a>
+                    <a class="nav-link mx-2 text-uppercase" href="view/creator/maincreators.php">Creators</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="favorite.php">Favorite</a>
+                    <a class="nav-link mx-2 text-uppercase" href="view/page/favorite.php">Favorite</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="../tentang.php">Tentang</a>
+                    <a class="nav-link mx-2 text-uppercase" href="view/tentang.php">Tentang</a>
                 </li>
             </ul>
             <form method="GET">
