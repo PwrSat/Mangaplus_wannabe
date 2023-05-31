@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 29, 2023 at 06:36 PM
+-- Generation Time: May 31, 2023 at 02:16 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.1.17
 
@@ -67,9 +67,9 @@ CREATE TABLE `comments` (
 --
 
 CREATE TABLE `favorites` (
-  `id` bigint(20) UNSIGNED NOT NULL,
-  `user` bigint(20) UNSIGNED NOT NULL,
-  `manga` bigint(20) UNSIGNED NOT NULL
+  `id_favorite` bigint(20) UNSIGNED NOT NULL,
+  `user_id` bigint(20) UNSIGNED NOT NULL,
+  `manga_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- --------------------------------------------------------
@@ -95,7 +95,9 @@ CREATE TABLE `mangas` (
   `sinopsis` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `author` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `cover` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
   `bahasa` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(225) COLLATE utf8mb4_unicode_ci NOT NULL,
   `count` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -105,12 +107,14 @@ CREATE TABLE `mangas` (
 -- Dumping data for table `mangas`
 --
 
-INSERT INTO `mangas` (`id`, `title`, `sinopsis`, `author`, `cover`, `bahasa`, `count`, `created_at`, `updated_at`) VALUES
-(1, 'kaguya sama', 'Kaguya-sama: Love Is War -Ultra Romantic- mengisahkan tentang Miyuki (diisi suara oleh Makoto Furukawa) yang merupakan seorang ketua siswa akademi di sekolahnya dan juga merupakan seorang anak dari keluarga kaya, memiliki peringkat yang terbaik membuat Miyuki menjadi seorang siswa yang sangat dihormati.', 'Aka Azaka', 'Kcover.jpg', 'indonesia', 88, NULL, '2023-05-28 05:33:19'),
-(2, 'The Breaker', 'Tentang dunia pendekar Korea di zaman modern dimana koalisinya telah dikuasai oleh pendekar culas yang mementingkan ambisi pribadinya. Lalu kehidupan sekolah Shi Woon yang selalu di gencet namun perlahan berubah menjadi kuat. Guru baru yang sifatnya mesum namun memiliki ilmu beladiri yang tinggi. Kelucuan-kelucuan yang disebabkan oleh Chun Woo yang senang merayu guru perempuan namun sering gagal. Diselipkan juga fan services untuk menyegarkan mata. Ada juga bagian yang menyentuh ketika Shi Woon menyadari apa yang dilakukan gurunya selama ini bertujuan untuk melindungi dirinya. Yang kedua karena gambarnya yang bagus sekali. Pertarungan bela diri digambarkan dengan apiknya, gerak-gerak jurus yang begitu detail dan luwes. Penguasaan tenaga dalam, gerakan menghindar, menyerang dan impact terkena pukulan pun terlihat terasa sekali.', 'Jeon Keuk Jin', 'Bcover.jpg', 'indonesia', 10, NULL, '2023-05-22 10:19:39'),
-(3, 'Vinland Saga', 'Ini adalah kisah Thorfinn yang hendak melakukan balas dendam kepada Askeladd yang telah membunuh ayahnya. Tetapi seiring berjalannya cerita, Thorfinn menyadari bahwa ada tujuan lebih besar yang harus ia capai selain balas dendam.', 'Makoto Yukimura', 'Vcover.jpg', 'indonesia', 1, NULL, NULL),
-(4, 'Oshi no Ko', 'Ai yang baru berusia 16 tahun datang dalam keadaan hamil anak kembar. Untuk menyembunyikan kehamilannya, Ai mengumumkan kepada publik bahwa dirinya akan mengambil hiatus selama beberapa waktu. Di tengah kebingungannya, Gorou berjanji akan menjaga dan membantu Ai sampai kelahiran kedua anaknya.', 'AKA AZAKA', 'Ocover.jpg', 'indonesia', 1, NULL, NULL),
-(5, 'Mushoku Tensei ', 'Mengisahkan tentang seorang pria pengangguran dan putus asa yang bereinkarnasi ke dunia fantasi sambil mempertahankan ingatannya, ia bertekad untuk menjalani kehidupan barunya tanpa penyesalan. Seri ini awalnya diterbitkan di situs web berisi novel karya penggunanya Shōsetsuka ni Narō pada tanggal 22 November 2012.', 'RIFUJIN NA MAGONOTE', 'Mcover.jpg', 'indonesia', 0, NULL, NULL);
+INSERT INTO `mangas` (`id`, `title`, `sinopsis`, `author`, `cover`, `banner`, `bahasa`, `type`, `count`, `created_at`, `updated_at`) VALUES
+(1, 'kaguya sama', 'Kaguya-sama: Love Is War -Ultra Romantic- mengisahkan tentang Miyuki (diisi suara oleh Makoto Furukawa) yang merupakan seorang ketua siswa akademi di sekolahnya dan juga merupakan seorang anak dari keluarga kaya, memiliki peringkat yang terbaik membuat Miyuki menjadi seorang siswa yang sangat dihormati.', 'Aka Azaka', 'Kcover.jpg', 'kaguya.png', 'indonesia', 'weekly', 130, '2023-05-31 08:41:23', '2023-05-31 05:33:19'),
+(2, 'The Breaker', 'Tentang dunia pendekar Korea di zaman modern dimana koalisinya telah dikuasai oleh pendekar culas yang mementingkan ambisi pribadinya. Lalu kehidupan sekolah Shi Woon yang selalu di gencet namun perlahan berubah menjadi kuat. Guru baru yang sifatnya mesum namun memiliki ilmu beladiri yang tinggi. Kelucuan-kelucuan yang disebabkan oleh Chun Woo yang senang merayu guru perempuan namun sering gagal. Diselipkan juga fan services untuk menyegarkan mata. Ada juga bagian yang menyentuh ketika Shi Woon menyadari apa yang dilakukan gurunya selama ini bertujuan untuk melindungi dirinya. Yang kedua karena gambarnya yang bagus sekali. Pertarungan bela diri digambarkan dengan apiknya, gerak-gerak jurus yang begitu detail dan luwes. Penguasaan tenaga dalam, gerakan menghindar, menyerang dan impact terkena pukulan pun terlihat terasa sekali.', 'Jeon Keuk Jin', 'Bcover.jpg', 'oshi.jpg', 'indonesia', 'weekly', 14, '2023-05-31 08:41:36', '2023-05-22 10:19:39'),
+(3, 'Vinland Saga', 'Ini adalah kisah Thorfinn yang hendak melakukan balas dendam kepada Askeladd yang telah membunuh ayahnya. Tetapi seiring berjalannya cerita, Thorfinn menyadari bahwa ada tujuan lebih besar yang harus ia capai selain balas dendam.', 'Makoto Yukimura', 'Vcover.jpg', 'vinland.jpg', 'indonesia', 'monthly', 30, '2023-05-31 08:41:53', '2023-05-31 08:41:58'),
+(4, 'Oshi no Ko', 'Ai yang baru berusia 16 tahun datang dalam keadaan hamil anak kembar. Untuk menyembunyikan kehamilannya, Ai mengumumkan kepada publik bahwa dirinya akan mengambil hiatus selama beberapa waktu. Di tengah kebingungannya, Gorou berjanji akan menjaga dan membantu Ai sampai kelahiran kedua anaknya.', 'AKA AZAKA', 'Ocover.jpg', 'oshi.jpg', 'inggris', 'weekly', 20, NULL, '2023-05-31 11:54:00'),
+(5, 'Mushoku Tensei ', 'Mengisahkan tentang seorang pria pengangguran dan putus asa yang bereinkarnasi ke dunia fantasi sambil mempertahankan ingatannya, ia bertekad untuk menjalani kehidupan barunya tanpa penyesalan. Seri ini awalnya diterbitkan di situs web berisi novel karya penggunanya Shōsetsuka ni Narō pada tanggal 22 November 2012.', 'RIFUJIN NA MAGONOTE', 'Mcover.jpg', 'Mushoku.jpg', 'indonesia', 'weekly', 0, NULL, '2023-05-31 11:54:06'),
+(6, 'Takane to Hana', 'bercerita tentang Hana Nonomura yang diperankan oleh Aisa Takeuchi telah berusia 16 tahun. kakak perempuannya Yukari. mendapatkan perintah untuk melakukan kencan buta, tetapi Yukari tidak mau menghadiri kencan buta itu untuk mencari pasangan hidup.', 'YUKI SHIWASU', 'Tcover.jpg', '', 'inggris', '', 0, NULL, NULL),
+(7, 'One Punch Man', 'bermula dari pemuda bernama Saitama yang memiliki hobi unik sedari kecil yaitu menjadi seorang pahlawan. Untuk mewujudkan impiannya itu Saitama berupaya keras dengan terus berlatih serta berguru tanpa henti selama tiga tahun.', 'MURATA', 'Opcover.jpg', '', 'inggris', '', 1, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -214,7 +218,27 @@ INSERT INTO `pages` (`id`, `chapter_id`, `order`, `path`) VALUES
 (54, 2, 31, 'storage/mangas/101/The_Breaker_Chapter_01/031.jpg'),
 (55, 2, 32, 'storage/mangas/101/The_Breaker_Chapter_01/032.jpg'),
 (56, 2, 33, 'storage/mangas/101/The_Breaker_Chapter_01/033.jpg'),
-(57, 2, 34, 'storage/mangas/101/The_Breaker_Chapter_01/034.jpg');
+(57, 2, 34, 'storage/mangas/101/The_Breaker_Chapter_01/034.jpg'),
+(59, 3, 1, 'storage/mangas/100/chapter_02/01.jpg'),
+(60, 3, 2, 'storage/mangas/100/chapter_02/02.jpg'),
+(61, 3, 3, 'storage/mangas/100/chapter_02/03.jpg'),
+(62, 3, 4, 'storage/mangas/100/chapter_02/04.jpg'),
+(63, 3, 5, 'storage/mangas/100/chapter_02/05.jpg'),
+(64, 3, 6, 'storage/mangas/100/chapter_02/06.jpg'),
+(65, 3, 7, 'storage/mangas/100/chapter_02/07.jpg'),
+(66, 3, 8, 'storage/mangas/100/chapter_02/08.jpg'),
+(67, 3, 9, 'storage/mangas/100/chapter_02/09.jpg'),
+(68, 3, 10, 'storage/mangas/100/chapter_02/10.jpg'),
+(69, 3, 11, 'storage/mangas/100/chapter_02/11.jpg'),
+(70, 3, 12, 'storage/mangas/100/chapter_02/12.jpg'),
+(71, 3, 13, 'storage/mangas/100/chapter_02/13.jpg'),
+(72, 3, 14, 'storage/mangas/100/chapter_02/14.jpg'),
+(73, 3, 15, 'storage/mangas/100/chapter_02/15.jpg'),
+(74, 3, 16, 'storage/mangas/100/chapter_02/16.jpg'),
+(75, 3, 17, 'storage/mangas/100/chapter_02/17.jpg'),
+(76, 3, 18, 'storage/mangas/100/chapter_02/18.jpg'),
+(77, 3, 19, 'storage/mangas/100/chapter_02/19.jpg'),
+(78, 3, 20, 'storage/mangas/100/chapter_02/20.jpg');
 
 -- --------------------------------------------------------
 
@@ -224,7 +248,7 @@ INSERT INTO `pages` (`id`, `chapter_id`, `order`, `path`) VALUES
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `username` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_role` enum('admin','author') COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
@@ -238,7 +262,7 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `name`, `email`, `user_role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
+INSERT INTO `users` (`id`, `username`, `email`, `user_role`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
 (1, 'Dr. Diana Keeling Sr.', 'jerrell.macejkovic@hotmail.com', 'author', '1995-03-13 18:40:10', '}j\\6\\Q', NULL, NULL, NULL),
 (2, 'Candida Bayer', 'ydaniel@johns.org', 'admin', '2007-01-23 20:34:34', 'i,ZU1>^RjR0F7*', NULL, NULL, NULL),
 (3, 'Mrs. Alison Ledner PhD', 'pansy.okon@carroll.com', 'author', '2019-03-23 21:01:30', '^a9aQfVl~+2t21+D\'a8', NULL, NULL, NULL),
@@ -248,7 +272,10 @@ INSERT INTO `users` (`id`, `name`, `email`, `user_role`, `email_verified_at`, `p
 (7, 'Tyler Robel', 'jones.maye@yahoo.com', 'author', '2013-09-28 17:06:37', '<Z`KjU>$T*_Ujt', NULL, NULL, NULL),
 (8, 'Josianne Tillman', 'qsteuber@stracke.com', 'author', '1988-12-01 22:37:47', 'R~;9eH5C6\'&WKh', NULL, NULL, NULL),
 (9, 'Rocio Renner', 'kmayert@wolff.com', 'author', '2021-12-15 07:43:45', 'lxzTNS)&y$y', NULL, NULL, NULL),
-(10, 'Verna Dooley DVM', 'reyes34@parker.biz', 'author', '1994-01-29 22:02:03', '0gs-yOWR{E)`+yd', NULL, NULL, NULL);
+(10, 'Verna Dooley DVM', 'reyes34@parker.biz', 'author', '1994-01-29 22:02:03', '0gs-yOWR{E)`+yd', NULL, NULL, NULL),
+(11, 'harum', 'lulang@gmail.com', 'admin', NULL, 'halodunia', NULL, NULL, NULL),
+(12, 'ZeeroXc', 'lk@gmail.com', 'admin', NULL, '12345678', NULL, NULL, NULL),
+(13, 'van', 'sat@gmail.com', 'admin', NULL, '12345678', NULL, NULL, NULL);
 
 --
 -- Indexes for dumped tables
@@ -274,9 +301,9 @@ ALTER TABLE `comments`
 -- Indexes for table `favorites`
 --
 ALTER TABLE `favorites`
-  ADD PRIMARY KEY (`id`),
-  ADD KEY `favorites_user_foreign` (`user`),
-  ADD KEY `favorites_manga_foreign` (`manga`);
+  ADD PRIMARY KEY (`id_favorite`),
+  ADD KEY `favorites_user_foreign` (`user_id`),
+  ADD KEY `favorites_manga_foreign` (`manga_id`);
 
 --
 -- Indexes for table `genre`
@@ -330,7 +357,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id_favorite` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `genre`
@@ -342,7 +369,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `mangas`
 --
 ALTER TABLE `mangas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `migrations`
@@ -354,13 +381,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `pages`
 --
 ALTER TABLE `pages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- Constraints for dumped tables
@@ -384,8 +411,8 @@ ALTER TABLE `comments`
 -- Constraints for table `favorites`
 --
 ALTER TABLE `favorites`
-  ADD CONSTRAINT `favorites_manga_foreign` FOREIGN KEY (`manga`) REFERENCES `mangas` (`id`),
-  ADD CONSTRAINT `favorites_user_foreign` FOREIGN KEY (`user`) REFERENCES `users` (`id`);
+  ADD CONSTRAINT `favorites_manga_foreign` FOREIGN KEY (`manga_id`) REFERENCES `mangas` (`id`),
+  ADD CONSTRAINT `favorites_user_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`);
 
 --
 -- Constraints for table `pages`

@@ -225,11 +225,13 @@ $resultCount = mysqli_query($koneksi, $queryCount);
                                         <div class="RankingTitle-module_rankingTitle_2E0E-">
                                             <img alt="" class="RankingTitle-module_titleImg_18ZMt" src="assets/storage/cover/<?php echo $roww['cover']; ?>" lazy="loaded">
                                             <div class="RankingTitle-module_titleDetail_35zr8">
-                                                <p class="RankingTitle-module_title_2rg5n"><?php echo $roww['title']; ?></p>
-                                                <p class="RankingTitle-module_author_2DBfa"><?php echo $roww['author']; ?></p>
-                                                <p class="RankingTitle-module_viewCount_1E3Re">
-                                                    <i class="fa-solid fa-eye"></i> <?php echo $roww['count']; ?>
-                                                </p>
+                                                <a href="view/page/viewer/titles.php?id=<?php echo $roww['id']; ?>" class="all-title">
+                                                    <p class="RankingTitle-module_title_2rg5n"><?php echo $roww['title']; ?></p>
+                                                    <p class="RankingTitle-module_author_2DBfa"><?php echo $roww['author']; ?></p>
+                                                    <p class="RankingTitle-module_viewCount_1E3Re">
+                                                        <i class="fa-solid fa-eye"></i> <?php echo $roww['count']; ?>
+                                                    </p>
+                                                </a>
                                             </div>
                                         </div>
                                     </a>
