@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: May 31, 2023 at 02:16 PM
+-- Generation Time: May 31, 2023 at 04:39 PM
 -- Server version: 10.4.18-MariaDB
 -- PHP Version: 8.1.17
 
@@ -72,6 +72,13 @@ CREATE TABLE `favorites` (
   `manga_id` bigint(20) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`id_favorite`, `user_id`, `manga_id`) VALUES
+(17, 13, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -108,13 +115,14 @@ CREATE TABLE `mangas` (
 --
 
 INSERT INTO `mangas` (`id`, `title`, `sinopsis`, `author`, `cover`, `banner`, `bahasa`, `type`, `count`, `created_at`, `updated_at`) VALUES
-(1, 'kaguya sama', 'Kaguya-sama: Love Is War -Ultra Romantic- mengisahkan tentang Miyuki (diisi suara oleh Makoto Furukawa) yang merupakan seorang ketua siswa akademi di sekolahnya dan juga merupakan seorang anak dari keluarga kaya, memiliki peringkat yang terbaik membuat Miyuki menjadi seorang siswa yang sangat dihormati.', 'Aka Azaka', 'Kcover.jpg', 'kaguya.png', 'indonesia', 'weekly', 130, '2023-05-31 08:41:23', '2023-05-31 05:33:19'),
+(1, 'kaguya sama', 'Kaguya-sama: Love Is War -Ultra Romantic- mengisahkan tentang Miyuki (diisi suara oleh Makoto Furukawa) yang merupakan seorang ketua siswa akademi di sekolahnya dan juga merupakan seorang anak dari keluarga kaya, memiliki peringkat yang terbaik membuat Miyuki menjadi seorang siswa yang sangat dihormati.', 'Aka Azaka', 'Kcover.jpg', 'kaguya.png', 'indonesia', 'weekly', 134, '2023-05-31 08:41:23', '2023-05-31 05:33:19'),
 (2, 'The Breaker', 'Tentang dunia pendekar Korea di zaman modern dimana koalisinya telah dikuasai oleh pendekar culas yang mementingkan ambisi pribadinya. Lalu kehidupan sekolah Shi Woon yang selalu di gencet namun perlahan berubah menjadi kuat. Guru baru yang sifatnya mesum namun memiliki ilmu beladiri yang tinggi. Kelucuan-kelucuan yang disebabkan oleh Chun Woo yang senang merayu guru perempuan namun sering gagal. Diselipkan juga fan services untuk menyegarkan mata. Ada juga bagian yang menyentuh ketika Shi Woon menyadari apa yang dilakukan gurunya selama ini bertujuan untuk melindungi dirinya. Yang kedua karena gambarnya yang bagus sekali. Pertarungan bela diri digambarkan dengan apiknya, gerak-gerak jurus yang begitu detail dan luwes. Penguasaan tenaga dalam, gerakan menghindar, menyerang dan impact terkena pukulan pun terlihat terasa sekali.', 'Jeon Keuk Jin', 'Bcover.jpg', 'oshi.jpg', 'indonesia', 'weekly', 14, '2023-05-31 08:41:36', '2023-05-22 10:19:39'),
 (3, 'Vinland Saga', 'Ini adalah kisah Thorfinn yang hendak melakukan balas dendam kepada Askeladd yang telah membunuh ayahnya. Tetapi seiring berjalannya cerita, Thorfinn menyadari bahwa ada tujuan lebih besar yang harus ia capai selain balas dendam.', 'Makoto Yukimura', 'Vcover.jpg', 'vinland.jpg', 'indonesia', 'monthly', 30, '2023-05-31 08:41:53', '2023-05-31 08:41:58'),
 (4, 'Oshi no Ko', 'Ai yang baru berusia 16 tahun datang dalam keadaan hamil anak kembar. Untuk menyembunyikan kehamilannya, Ai mengumumkan kepada publik bahwa dirinya akan mengambil hiatus selama beberapa waktu. Di tengah kebingungannya, Gorou berjanji akan menjaga dan membantu Ai sampai kelahiran kedua anaknya.', 'AKA AZAKA', 'Ocover.jpg', 'oshi.jpg', 'inggris', 'weekly', 20, NULL, '2023-05-31 11:54:00'),
 (5, 'Mushoku Tensei ', 'Mengisahkan tentang seorang pria pengangguran dan putus asa yang bereinkarnasi ke dunia fantasi sambil mempertahankan ingatannya, ia bertekad untuk menjalani kehidupan barunya tanpa penyesalan. Seri ini awalnya diterbitkan di situs web berisi novel karya penggunanya Shōsetsuka ni Narō pada tanggal 22 November 2012.', 'RIFUJIN NA MAGONOTE', 'Mcover.jpg', 'Mushoku.jpg', 'indonesia', 'weekly', 0, NULL, '2023-05-31 11:54:06'),
 (6, 'Takane to Hana', 'bercerita tentang Hana Nonomura yang diperankan oleh Aisa Takeuchi telah berusia 16 tahun. kakak perempuannya Yukari. mendapatkan perintah untuk melakukan kencan buta, tetapi Yukari tidak mau menghadiri kencan buta itu untuk mencari pasangan hidup.', 'YUKI SHIWASU', 'Tcover.jpg', '', 'inggris', '', 0, NULL, NULL),
-(7, 'One Punch Man', 'bermula dari pemuda bernama Saitama yang memiliki hobi unik sedari kecil yaitu menjadi seorang pahlawan. Untuk mewujudkan impiannya itu Saitama berupaya keras dengan terus berlatih serta berguru tanpa henti selama tiga tahun.', 'MURATA', 'Opcover.jpg', '', 'inggris', '', 1, NULL, NULL);
+(7, 'One Punch Man', 'bermula dari pemuda bernama Saitama yang memiliki hobi unik sedari kecil yaitu menjadi seorang pahlawan. Untuk mewujudkan impiannya itu Saitama berupaya keras dengan terus berlatih serta berguru tanpa henti selama tiga tahun.', 'MURATA', 'Opcover.jpg', '', 'inggris', '', 1, NULL, NULL),
+(8, 'Komi-san wa Komyushou', 'siswi SMA yang terkenal sebagai gadis paling cantik di sekolahnya. Tadano yang menjadi teman sekelasnya kemudian mengetahui di balik kepribadiannya yang kalem, ternyata Komi tidak bisa berkomunikasi dengan lancar ke teman-teman sekelasnya.', 'TOMOHITO ODA', 'KOcover.jpg', 'Komi.jpg', 'indonesia', 'weekly', 0, '2023-05-31 13:11:37', '2023-05-31 13:11:37');
 
 -- --------------------------------------------------------
 
@@ -357,7 +365,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `id_favorite` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id_favorite` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `genre`
@@ -369,7 +377,7 @@ ALTER TABLE `genre`
 -- AUTO_INCREMENT for table `mangas`
 --
 ALTER TABLE `mangas`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `migrations`
