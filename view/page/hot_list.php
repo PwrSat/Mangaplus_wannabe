@@ -59,26 +59,10 @@ $result = mysqli_query($koneksi, $query);
 
     <div class="container">
         <!-- {{-- isi konten disini ya --}} -->
-        <?php { ?>
+     
             <div class="styles-maincontainer">
-                <div class="module-mangalist">
-                    <div class="module-header">
-                        <h1 class="module-title module-title-2">Daftar Manga</h1>
-                        <nav class="module-toggle">
-                            <ul>
-                                <li class="module-toggleitem">
-                                    <a href="www.google.com" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
-                                </li>
-                                <li class="module-toggleitem">
-                                    <a href="/view/page/unggulan.php" class="">Paling Dilihat</a>
-                                </li>
-                                <li class="module-toggleitem">
-                                    <a href="/manga_list/updated" class="">Baru</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                <?php } ?>
+            
+
                 <?php
                 $no = 1;
 

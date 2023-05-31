@@ -58,56 +58,57 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                                 <img src="../../../assets/storage/cover/<?php echo $manga['cover']; ?>" alt="" class="TitleDetailHeader-module_coverImage_3rvaT">
                                 <?php
 
-                                if(isset($_POST["btn-fav"])){
+                                if (isset($_POST["btn-fav"])) {
                                     favorite($_POST);
                                 }
 
                                 ?>
-                    
-                                
-									<?php
-                                    // var_dump($_SESSION);
-                                    // echo "<pre>";
-                                    // var_dump($manga);
-                                    // echo "</pre>";
-										if(!empty($_SESSION['id_user'])){
-									    
-										$user = $_SESSION['id_user'];
 
-										$hasil2 = mysqli_query($koneksi," SELECT * FROM favorites WHERE user_id = $user AND manga_id = ".$manga['id']."");
-                                        // var_dump($hasil2);
 
-										if($hasil2->num_rows == 0){
-						          	?>  
-                                            <form action="" method="post">
-                                                <input type="hidden" name="user_id" value="<?= $user ?>">
-                                                <input type="hidden" name="manga_id" value="<?=$manga['id']?>">
-                                                <input type="hidden" name="status" value="1">
-                                                <div>
-                                                    <button name="btn-fav" type="submit" class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg" >Tambahkan
-                                                    ke Favorit </button>
-                                                </div>
-                                            </form>
+                                <?php
+                                // var_dump($_SESSION);
+                                // echo "<pre>";
+                                // var_dump($manga);
+                                // echo "</pre>";
+                                if (!empty($_SESSION['id_user'])) {
 
-									<?php } else { ?>
+                                    $user = $_SESSION['id_user'];
 
-                                            <form action="" method="post">
+                                    $hasil2 = mysqli_query($koneksi, " SELECT * FROM favorites WHERE user_id = $user AND manga_id = " . $manga['id'] . "");
+                                    // var_dump($hasil2);
+
+                                    if ($hasil2->num_rows == 0) {
+                                ?>
+                                        <form action="" method="post">
                                             <input type="hidden" name="user_id" value="<?= $user ?>">
-                                                <input type="hidden" name="manga_id" value="<?=$manga['id']?>">
-                                                <input type="hidden" name="status" value="2">
-                                                <div>
-                                                    <button name="btn-fav" type="submit" class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg">Hapus dari favorite</button>
-                                                </div>
-                                            </form>
+                                            <input type="hidden" name="manga_id" value="<?= $manga['id'] ?>">
+                                            <input type="hidden" name="status" value="1">
+                                            <div>
+                                                <button name="btn-fav" type="submit" class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg">Tambahkan
+                                                    ke Favorit </button>
+                                            </div>
+                                        </form>
 
-									<?php } } ?>
+                                    <?php } else { ?>
+
+                                        <form action="" method="post">
+                                            <input type="hidden" name="user_id" value="<?= $user ?>">
+                                            <input type="hidden" name="manga_id" value="<?= $manga['id'] ?>">
+                                            <input type="hidden" name="status" value="2">
+                                            <div>
+                                                <button name="btn-fav" type="submit" class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg">Hapus dari favorite</button>
+                                            </div>
+                                        </form>
+
+                                <?php }
+                                } ?>
 
                             </div>
-								
-                                
-                                
-                                
-                                
+
+
+
+
+
                             <div class="TitleDetailHeader-module_info_1_7BN">
                                 <h1 class="TitleDetailHeader-module_title_Iy33M"><?php echo $manga['title']; ?></h1>
                                 <p class="TitleDetailHeader-module_author_3Q2QN"><?php echo $manga['author']; ?></p>
@@ -124,11 +125,6 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
 
                 <div class="TitleDetail-module_flexContainer_1oGb4">
                     <topside class="TitleDetail-module_topside_1IIit">
-                        <div>
-                            <h6 class="TitleDetail-module_languageHeader_16ygX">Bahasa yang Tersedia</h6>
-                            <div class="TitleDetail-module_languages_87lPm"><a href="/titles/100037" aria-current="page" class="router-link-exact-active router-link-active TitleDetail-module_active_1rFIx" title="Read in English">English</a><a href="/titles/200098" class="" title="Read in English">indonesia</a>
-                            </div>
-                        </div>
                         <div>
                             <h6 class="TitleDetail-module_updateHeader_Ku5ec">Jadwal Pembaharuan</h6>
                             <p class="TitleDetail-module_updateInfo_2MITq"><span>Bab baru meluncur pada Tuesday, May 23,
@@ -154,28 +150,21 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                                 <div class="ChapterList-module_chapterListTitleWrapper_1MLyK">
                                     <h6 class="ChapterList-module_chapterListTitle_3-F05">Daftar Bab</h6>
                                     <p class="ChapterList-module_numberOfViews_14bIt"><img src="../../../assets/img/icon_eye.53d7b892.svg" class="ChapterList-module_viewIcon_1p37L">
-                                    <?php
+                                        <?php
                                         $count = $manga['count'] + 1;
                                         $queryUpdateCount = "UPDATE mangas SET count = $count WHERE id = '$id'";
                                         mysqli_query($koneksi, $queryUpdateCount);
                                         echo $count;
-                                    ?>
+                                        ?>
                                     </p>
                                 </div>
-                            </div>
-
-
-                            <div class="ChapterList-module_chapterHeader_1_HCB">
-                                <h3 class="ChapterList-module_message_bxe9x"></h3>
-                                <div class="ChapterList-module_sort_3OHNF"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAMAAADVRocKAAAAjVBMVEUAAAD///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////8DizOFAAAALnRSTlMAgBj0hwSKyYLihGpbQSAB+/jvptXNX00tCMa+spuYUDkqEujl3a9yVS/mkXkX4MN39wAAAcpJREFUaN7t1mlvgkAQgOGhHKJyQ1G876PH/P+fV+NgBknaxjKTmHTfT65ueBLWXQCTyWR66iyss+DH3CAvsnQ38c86QNnHW4dIHnDn2CgLxYF3vMteCwMjbFW4okD8iu0CUSBEahpGw5Q+vooCHk2YVI27tZEEejRh1BwsJQHaAgkt7AfNHkoC9vX3Pg0Cni0G0MLuaXBSALbX31MaHPkWSS/y+DqY8UYQAxY0YQ6X1siaGLBE6ujCuT5Us1gScLe3Q66PdbnsYVdiu5UsEOd4X0/8gbNoHaZSABfmNqKN1JsrCHCbaIi8yxQAqHY0c++qADy1BB3gs16CIlYCFsjPGg1gnfAeUAFmSIU6AL9agArA70YrJSBAagY6QFUf1MlYCeAMAAb410DUo4kvSsApQ02gmiNqAuMCVYFhiprA5oCoCvRQGShVAX5cTtQAWOElz9UDIMdsBKAIRNMIdADuqQDLbpTcgKT5rdUJAA9/yet6i7y/XJ+BroInscgOfpsj8y9yHr4+A50ER24fOA9en4EOgiO7kwfYagCyQFsYgCzQFgYah53P1/dBA2DBBw2ABR80AH4iWKABsGCBBsCCBQ8BJpPJ9KR9AY4H9+HKSblgAAAAAElFTkSuQmCC" alt="sort" class="ChapterList-module_sortIcon_1dGE4"></div>
                             </div>
 
                             <?php
                             foreach ($resultChapters as $chapter) {
                             ?>
-
-                                <div class="ChapterListItem-module_chapterListItem_ykICp">
-                                    <div class="ChapterListItem-module_chapterWrapper_3CxyE"><img alt="thumbnail" class="ChapterListItem-module_thumbnail_alreadyRead_1u3_a" src="https://mangaplus.shueisha.co.jp/drm/title/100037/chapter/1001249/chapter_thumbnail/7129.jpg?key=cb8b8e8b395d55f5bfe2705147f1b3d9&amp;duration=86400" lazy="loaded">
+                                <div class="ChapterListItem-module_chapterListItem_ykICp" style="text-align: center;">
+                                    <div class="ChapterListItem-module_chapterWrapper_3CxyE">
                                         <a href="komik.php?id=<?php echo $chapter['id'] ?>">
                                             <p class="ChapterListItem-module_name_alreadyRead_1HYKk"><?php echo $chapter['chapter_number']; ?></p>
                                             <br>
@@ -183,7 +172,6 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                                         </a>
                                     </div>
                                 </div>
-
                             <?php
                             }
                             ?>
@@ -194,14 +182,6 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                             <div id="mangaplus_pc_title_rectangle_1" class="gado" data-google-query-id="" style="min-height: 250px;">
                                 <div id="google_ads_iframe_/16791533/MANGAPLUS/mangaplus_pc_title_rectangle_1_2__container__" style="border: 0pt none; width: 300px; height: 0px;"></div>
                             </div>
-                        </div>
-                        <div class="BannerList-module_wrapper_3nK2F">
-                            <div class="BannerList-module_container_3lDbU"><a><img data-id="1019" class="BannerList-module_banner_2U34h" data-src="https://mangaplus.shueisha.co.jp/drm/publisher_banner/173791.jpg?key=3c5cf56642e6d4e3673796cc50d89e89&amp;duration=86400" src="https://mangaplus.shueisha.co.jp/drm/publisher_banner/173791.jpg?key=3c5cf56642e6d4e3673796cc50d89e89&amp;duration=86400" lazy="loaded"></a></div>
-                        </div>
-                        <div class="TitleDetail-module_banners_1ALpQ">
-                            <div class="TitleDetail-module_bannerWrap_3Iyuy"><img src="https://mangaplus.shueisha.co.jp/drm/featured_banner/253256.jpg?key=294d925d9ed9da7c7236442d91e798f4&amp;duration=86400" data-banner-id="279" class="TitleDetail-module_banner_2kTCX"></div>
-                            <div class="TitleDetail-module_bannerWrap_3Iyuy"><img src="https://mangaplus.shueisha.co.jp/drm/featured_banner/139707.jpg?key=5fd72927b232941343f756b45956d9c1&amp;duration=86400" data-banner-id="209" class="TitleDetail-module_banner_2kTCX"></div>
-                            <div class="TitleDetail-module_bannerWrap_3Iyuy"><img src="https://mangaplus.shueisha.co.jp/drm/featured_banner/139704.jpg?key=2c89a2d9b84efab9f506d319e2edb97a&amp;duration=86400" data-banner-id="208" class="TitleDetail-module_banner_2kTCX"></div>
                         </div>
                     </aside>
                 </div>

@@ -65,14 +65,14 @@ $result = mysqli_query($koneksi, $query);
                     <h1 class="module-title module-title-2">Daftar Manga</h1>
                     <nav class="module-toggle">
                         <ul>
-                            <li class="module-toggleitem">
-                                <a href="#" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
+                            <li class="listbar mx-3" style="display: inline-block; font-size: 20px; color: var(--color-yellow); opacity: 1; ">
+                                <a href="daftar.php" aria-current="page" class="">Semua</a>
                             </li>
-                            <li class="module-toggleitem">
-                                <a href="/view/page/unggulan.php" class="">Paling Dilihat</a>
+                            <li class="listbar mx-3" style="display: inline-block; font-size: 20px; color: var(--color-yellow); opacity: 1;">
+                                <a href="hot_list.php" class="">Paling Dilihat</a>
                             </li>
-                            <li class="module-toggleitem">
-                                <a href="/manga_list/updated" class="">Baru</a>
+                            <li class="listbar mx-3" style="display: inline-block; font-size: 20px; color: var(--color-yellow); opacity: 1;">
+                                <a href="updated_list.php" class="">Baru</a>
                             </li>
                         </ul>
                     </nav>

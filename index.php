@@ -5,7 +5,7 @@ $query = "SELECT * FROM mangas"; //memanggil file yang ada di table mangas
 
 $result = mysqli_query($koneksi, $query);
 
-$queryCount = "SELECT * FROM mangas ORDER BY count DESC";  //memanggil file yang ada di table mangas
+$queryCount = "SELECT * FROM mangas ORDER BY count DESC";  //memanggil file yang ada di table mangas tetapi berurutan sesuai dengan jumlah count
 
 $resultCount = mysqli_query($koneksi, $queryCount);
 
