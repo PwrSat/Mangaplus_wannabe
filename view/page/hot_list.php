@@ -2,9 +2,9 @@
 
 require_once "../../function.php";
 
-$query = "SELECT * FROM mangas ORDER BY count DESC"; //memanggil file yang ada di table mangas
+$queryCount = "SELECT * FROM mangas ORDER BY count DESC"; //memanggil file yang ada di table mangas
 
-$result = mysqli_query($koneksi, $query);
+$resultCount = mysqli_query($koneksi, $queryCount);
 
 ?>
 
@@ -59,9 +59,25 @@ $result = mysqli_query($koneksi, $query);
 
     <div class="container">
         <!-- {{-- isi konten disini ya --}} -->
-     
-            <div class="styles-maincontainer">
-            
+
+        <div class="styles-maincontainer">
+            <div class="module-mangalist">
+                <div class="module-header">
+                    <h1 class="module-title module-title-2">Daftar Manga</h1>
+                    <nav class="module-toggle">
+                        <ul>
+                            <li class="listbar mx-3" style="display: inline-block; font-size: 20px; color: var(--color-yellow); opacity: 1; ">
+                                <a href="daftar.php" class="">Semua</a>
+                            </li>
+                            <li class="listbar mx-3" style="display: inline-block; font-size: 20px; color: var(--color-yellow); opacity: 1;">
+                                <a href="hot_list.php" aria-current="page" class="">Paling Dilihat</a>
+                            </li>
+                            <li class="listbar mx-3" style="display: inline-block; font-size: 20px; color: var(--color-yellow); opacity: 1;">
+                                <a href="updated_list.php" class="">Baru</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
 
                 <?php
                 $no = 1;
@@ -70,23 +86,26 @@ $result = mysqli_query($koneksi, $query);
                 $selectedLanguage = isset($_GET['filter-language']) ? $_GET['filter-language'] : '';
 
                 // Menyiapkan query SQL dengan filter bahasa
-                $query = "SELECT * FROM mangas";
+                
                 if ($selectedLanguage === 'indonesia') {
-                    $query .= " WHERE bahasa = 'indonesia'";
+                    $queryCount = "SELECT * FROM mangas";
+                    $queryCount .= " WHERE bahasa = 'indonesia'";
                 } elseif ($selectedLanguage === 'inggris') {
-                    $query .= " WHERE bahasa = 'inggris'";
+                    $queryCount = "SELECT * FROM mangas";
+                    $queryCount .= " WHERE bahasa = 'inggris'";
                 }
 
                 // Menjalankan query SQL
-                $result = mysqli_query($koneksi, $query);
+                $resultCount = mysqli_query($koneksi, $queryCount);
 
                 if (isset($_GET['cari'])) {
-                    $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%" .
+                    $resultCount = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%" .
                         $_GET['cari'] . "%'");
                 }
                 ?>
-                <div class="title-wrapper">
-                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
+
+                <?php while ($row = mysqli_fetch_assoc($resultCount)) : ?>
+                    <div class="title-wrapper">
                         <div class="title-module">
                             <a href="viewer/titles.php?id=<?php echo $row['id']; ?>" class="all-title">
                                 <img class="all-title-image" src="../../assets/storage/cover/<?php echo $row['cover']; ?>">
@@ -97,23 +116,32 @@ $result = mysqli_query($koneksi, $query);
                                 <p class="title-author"><?php echo $row['author']; ?></p>
                             </a>
                         </div>
-                    <?php endwhile; ?>
-                </div>
+                    </div>
+
+                <?php endwhile; ?>
+
 
                 <?php
                 mysqli_close($koneksi); // Close the database connection
                 ?>
-                <?php
-                include "layout_page/footer_page.php";
-                ?>
 
-                <!-- </div> -->
+            </div>
+        </div>
+    </div>
 
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-                </script>
-                <script src="https://kit.fontawesome.com/d8ca2bfebc.js" crossorigin="anonymous"></script>
+
+
+    <?php
+    include "layout_page/footer_page.php";
+    ?>
+
+    <!-- </div> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </script>
+    <script src="https://kit.fontawesome.com/d8ca2bfebc.js" crossorigin="anonymous"></script>
 
 
 </body>
