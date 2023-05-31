@@ -1,5 +1,11 @@
 <?php 
-    require_once "../../function.php";
+
+require_once "../../function.php";
+
+if(empty($_SESSION['id_user'])){
+  header("Location:../../login/login.php");
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -59,19 +65,55 @@
                     $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%".
                     $_GET['cari']."%'");
                 }
+                $id = $_SESSION["id_user"];
+
+                $favorit = tampilkan("SELECT favorites.*, mangas.* from favorites join mangas on favorites.manga_id = mangas.id where favorites.user_id = $id ");
+                // var_dump($favorit);
+                
+    
+                
     ?>
     <div class="SubscribedTitles-module_gridContainer_1cbmH">
-      <div class="SubscribedTitle-module_contents_2S_dW">
-        <div class="SubscribedTitle-module_lang_pivm4">
-          <span title="English">en</span>
-        </div>
-        <div class="SubscribedTitle-module_imgWrapper_usHUo">
-          <a href="/titles/100235">
-            <img alt="image" class="SubscribedTitle-module_image_2U_La" data-src="https://mangaplus.shueisha.co.jp/drm/title/100235/title_thumbnail_portrait_list/283046.jpg?key=e3e801572641d4424de6972fe0d4537c&amp;duration=86400" src="https://mangaplus.shueisha.co.jp/drm/title/100235/title_thumbnail_portrait_list/283046.jpg?key=e3e801572641d4424de6972fe0d4537c&amp;duration=86400" loading="lazy">
-          </a>
-          <p class="SubscribedTitle-module_btn_22S2b" cursorshover="true">Hapus</p>
-        </div>
-      </div>
+      <?php
+      if(empty($favorit)){ ?>
+          <p>Tidak ada favorit</p>
+      <?php  
+      }else{
+          foreach($favorit as $favorit){
+          ?>
+          <div class="SubscribedTitle-module_contents_2S_dW">
+            <div class="SubscribedTitle-module_lang_pivm4">
+              <span title="English">en</span>
+            </div>
+            <div class="SubscribedTitle-module_imgWrapper_usHUo">
+              <a href="/titles/100235">
+                <img alt="image" class="SubscribedTitle-module_image_2U_La" src="../../assets/storage/cover/<?= $favorit["cover"] ?>">
+              </a>
+
+              <?php
+                if(isset($_POST["btn-fav"])){
+                    favorite($_POST);
+                }
+              ?>
+
+              <?php
+              // var_dump($favorit)
+              ?>
+            <form action="" method="post">
+              <input type="hidden" name="user_id" value="<?= $_SESSION['id_user'] ?>">
+              <input type="hidden" name="manga_id" value="<?= $favorit['manga_id'] ?>">
+              <input type="hidden" name="status" value="2">
+
+              <div>
+                 <button name="btn-fav" type="submit" class="SubscribedTitle-module_btn_22S2b" cursorshover="true">Hapus</button>
+              </div>
+
+            </form>
+            </div>
+          </div>
+      <?php }
+    } ?>
+
     </div>
 
 

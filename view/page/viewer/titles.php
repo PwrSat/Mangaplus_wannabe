@@ -16,7 +16,6 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,9 +56,58 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                         <div class="TitleDetailHeader-module_right1_1o9Bj">
                             <div class="TitleDetailHeader-module_cover_3ljyH">
                                 <img src="../../../assets/storage/cover/<?php echo $manga['cover']; ?>" alt="" class="TitleDetailHeader-module_coverImage_3rvaT">
-                                <div><button class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg">Tambahkan
-                                        ke Favorit</button></div>
+                                <?php
+
+                                if(isset($_POST["btn-fav"])){
+                                    favorite($_POST);
+                                }
+
+                                ?>
+                    
+                                
+									<?php
+                                    // var_dump($_SESSION);
+                                    // echo "<pre>";
+                                    // var_dump($manga);
+                                    // echo "</pre>";
+										if(!empty($_SESSION['id_user'])){
+									    
+										$user = $_SESSION['id_user'];
+
+										$hasil2 = mysqli_query($koneksi," SELECT * FROM favorites WHERE user_id = $user AND manga_id = ".$manga['id']."");
+                                        // var_dump($hasil2);
+
+										if($hasil2->num_rows == 0){
+						          	?>  
+                                            <form action="" method="post">
+                                                <input type="hidden" name="user_id" value="<?= $user ?>">
+                                                <input type="hidden" name="manga_id" value="<?=$manga['id']?>">
+                                                <input type="hidden" name="status" value="1">
+                                                <div>
+                                                    <button name="btn-fav" type="submit" class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg" >Tambahkan
+                                                    ke Favorit </button>
+                                                </div>
+                                            </form>
+
+									<?php } else { ?>
+
+                                            <form action="" method="post">
+                                            <input type="hidden" name="user_id" value="<?= $user ?>">
+                                                <input type="hidden" name="manga_id" value="<?=$manga['id']?>">
+                                                <input type="hidden" name="status" value="2">
+                                                <div>
+                                                    <button name="btn-fav" type="submit" class="styles-module_btn_17GWO styles-module_default_uUjEB TitleDetailHeader-module_favoritedBtn_Z2Lrg">Hapus dari favorite</button>
+                                                </div>
+                                            </form>
+
+									<?php } } ?>
+
                             </div>
+								
+                                
+                                
+                                
+                                
                             <div class="TitleDetailHeader-module_info_1_7BN">
                                 <h1 class="TitleDetailHeader-module_title_Iy33M"><?php echo $manga['title']; ?></h1>
                                 <p class="TitleDetailHeader-module_author_3Q2QN"><?php echo $manga['author']; ?></p>

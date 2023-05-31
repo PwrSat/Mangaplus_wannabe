@@ -11,7 +11,18 @@
 
   <!-- link css -->
   <link rel="stylesheet" href="assets/css/pembaharuan.css">
-  
+
+  <style>
+        .container{
+            width: 850px;
+        }
+        .responsive-image {
+            max-width: 100%;
+            height: auto;
+            object-fit: cover;
+        }
+    </style>
+
 </head>
 
 <body>
@@ -19,13 +30,14 @@
   <div class="container-fluid" id="isi">
     <!-- {{-- isi konten disini ya --}} -->
 
+
     <!-- {{-- carousel --}} -->
     <div class="owl-carousel owl-theme" id="one">
-      <div class="item"> <img src="{{ asset('img/img1.jpg') }}"></div>
-      <div class="item"> <img src="{{ asset('img/img2.jpg') }}"></div>
-      <div class="item"> <img src="{{ asset('img/img3.jpg') }}"></div>
+      <?php while ($row = mysqli_fetch_assoc($result)) { //berfungsi untuk melakukan perulangan yang akan menampilkan data di table ?>
+        <div class="container"> <img class="responsive-image" src="../../assets/storage/cover/"></div>
+      <?php } mysqli_close($koneksi); //untuk mematikan queary atau memutuskan sinyal dari mysql?>
     </div>
-    
+
     <!-- {{-- pembaharuan harian --}} -->
     <div class="pembaharuan">
       <div class="wrapper">

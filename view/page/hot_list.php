@@ -2,7 +2,7 @@
 
 require_once "../../function.php";
 
-$query = "SELECT * FROM mangas"; //memanggil file yang ada di table mangas
+$query = "SELECT * FROM mangas ORDER BY count DESC"; //memanggil file yang ada di table mangas
 
 $result = mysqli_query($koneksi, $query);
 
@@ -59,24 +59,26 @@ $result = mysqli_query($koneksi, $query);
 
     <div class="container">
         <!-- {{-- isi konten disini ya --}} -->
-        <div class="styles-maincontainer">
-            <div class="module-mangalist">
-                <div class="module-header">
-                    <h1 class="module-title module-title-2">Daftar Manga</h1>
-                    <nav class="module-toggle">
-                        <ul>
-                            <li class="module-toggleitem">
-                                <a href="#" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
-                            </li>
-                            <li class="module-toggleitem">
-                                <a href="/view/page/unggulan.php" class="">Paling Dilihat</a>
-                            </li>
-                            <li class="module-toggleitem">
-                                <a href="/manga_list/updated" class="">Baru</a>
-                            </li>
-                        </ul>
-                    </nav>
-                </div>
+        <?php { ?>
+            <div class="styles-maincontainer">
+                <div class="module-mangalist">
+                    <div class="module-header">
+                        <h1 class="module-title module-title-2">Daftar Manga</h1>
+                        <nav class="module-toggle">
+                            <ul>
+                                <li class="module-toggleitem">
+                                    <a href="www.google.com" aria-current="page" class="router-link-exact-active MangaList-module_linkActive_2FFDQ">Semua</a>
+                                </li>
+                                <li class="module-toggleitem">
+                                    <a href="/view/page/unggulan.php" class="">Paling Dilihat</a>
+                                </li>
+                                <li class="module-toggleitem">
+                                    <a href="/manga_list/updated" class="">Baru</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                <?php } ?>
                 <?php
                 $no = 1;
 
@@ -98,41 +100,36 @@ $result = mysqli_query($koneksi, $query);
                     $result = mysqli_query($koneksi, "SELECT * FROM mangas WHERE title LIKE '%" .
                         $_GET['cari'] . "%'");
                 }
-
-                while ($row = mysqli_fetch_assoc($result)) { //berfungsi untuk melakukan perulangan yang akan   menampilkan data di table
                 ?>
-                    <div class="title-wrapper">
+                <div class="title-wrapper">
+                    <?php while ($row = mysqli_fetch_assoc($result)) : ?>
                         <div class="title-module">
                             <a href="viewer/titles.php?id=<?php echo $row['id']; ?>" class="all-title">
                                 <img class="all-title-image" src="../../assets/storage/cover/<?php echo $row['cover']; ?>">
                                 <div class="all-title-lang">
-                                    <span title="English" class=""><?php echo $row['bahasa']; ?></span>
+                                    <span title="English" class=""><img src="../../assets/img/icon_eye.53d7b892.svg" class="ChapterList-module_viewIcon_1p37L"><?php echo $row['count']; ?></span>
                                 </div>
                                 <p class="title-judul"><?php echo $row['title']; ?></p>
                                 <p class="title-author"><?php echo $row['author']; ?></p>
                             </a>
                         </div>
-                    </div>
+                    <?php endwhile; ?>
+                </div>
+
                 <?php
-                }
-                mysqli_close($koneksi); //untuk mematikan queary atau memutuskan sinyal dari mysql
+                mysqli_close($koneksi); // Close the database connection
+                ?>
+                <?php
+                include "layout_page/footer_page.php";
                 ?>
 
-            </div>
-        </div>
-    </div>
+                <!-- </div> -->
 
-    <?php
-    include "layout_page/footer_page.php";
-    ?>
-
-    <!-- </div> -->
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    </script>
-    <script src="https://kit.fontawesome.com/d8ca2bfebc.js" crossorigin="anonymous"></script>
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js" integrity="sha512-pumBsjNRGGqkPzKHndZMaAG+bir374sORyzM3uulLV14lN5LyykqNk8eEeUlUkB3U0M4FApyaHraT65ihJhDpQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+                </script>
+                <script src="https://kit.fontawesome.com/d8ca2bfebc.js" crossorigin="anonymous"></script>
 
 
 </body>

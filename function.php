@@ -16,14 +16,26 @@
     if ($koneksi->connect_error){
         die("Koneksi gagal ".$koneksi->connect_error);
     }
-
 ?>
 
 
 <!-- fungsi fungsi -->
 <!-- fungsi fungsi -->
+<!-- fungsi fungsi -->
 
 <?php
+
+
+function tampilkan($query)
+{
+    global $koneksi;
+    $hasil = mysqli_query($koneksi, $query);
+    $kosong = [];
+    while ($isi = mysqli_fetch_assoc($hasil)) {
+        $kosong[] = $isi;
+    }
+    return $kosong;
+}
 
 function register($data)
 {
@@ -62,6 +74,7 @@ function register($data)
         alert('Registrasi Akun Berhasil');
         document.location.href = 'index.php';
     </script>";
+        header("Location:login.php");
     }
 
 }
@@ -102,11 +115,13 @@ function login($data)
         echo
             "<script>
                     alert('Selamat kamu telah login');
-                    document.location.href = '/tubes_sbd-main';
+                    document.location.href = '../view/page/favorite.php';
             </script>";
+            
         $_SESSION['email'] = $email;
         $_SESSION['username'] = $user;
         $_SESSION['id_user'] = $id_user;
+        
     } else {
         echo
             "<script>
@@ -115,46 +130,37 @@ function login($data)
     }
 }
 
-?>
-<!-- fungsi fungsi -->
 
-<!-- fungsi favorite dari kating harap dirubah-->
+?>
+
 
 <?php
-    // include "includes/koneksi.php";
-    // if(empty($_SESSION['nama_user'])) {
-    //     header("Location:login.php"); die;
-    // }
 
-    // $user = $_SESSION['id_user'];
-    // $id_manga = $_POST['id_manga'];
+function favorite($data){
+    global $koneksi; 
+    // var_dump($data); die;
 
-    //     $query = "SELECT * FROM favorit WHERE id_user = $user AND id_manga = $id_manga";
-    //     $hasil = mysqli_query($koneksi, $query);
-    //     if($hasil->num_rows == 0){
-    //         $sql1 = "INSERT INTO favorit (id_user,id_manga) VALUES ('$user','$id_manga')";
-    //         if ($koneksi->query($sql1)===TRUE){
-    //             header("Location:favorit.php");
-    //         }
-    //     }else{
-    //         $sql2 = "DELETE FROM favorit WHERE id_user = $user AND id_manga = $id_manga";
-    //         if ($koneksi->query($sql2)===TRUE){
-    //             header("Location:lukisan.php?id_manga=$id_manga");
-    //         }
-    //     }
+    $uid = $data["user_id"];
+    $mdi = $data["manga_id"];
+    $sts = $data["status"];
+
+    if ($sts == 1) {
+        mysqli_query($koneksi, "INSERT into favorites(manga_id, user_id) values($mdi, $uid)");
+        echo "
+        <script>
+            document.location.href = '';
+        </script>";
+    } else {
+        mysqli_query($koneksi, "DELETE from favorites where manga_id = $mdi AND user_id = $uid");
+        echo "
+        <script>
+            document.location.href = '';
+        </script>";
+    }
+
+    }
 ?>
 
-<!-- fungsi hapus favorite dari kating harap dirubah-->
-
-<?php
-    // include("includes/koneksi.php");
-    // $user = $_SESSION['id_user'];
-    // $id_fav = $_GET['id_favorit'];
-    //     $sql = "DELETE FROM favorit WHERE id_favorit = $id_fav AND id_user = $user";
-    //     if ($koneksi->query($sql)===TRUE){
-    //         header("Location:favorit.php");
-    //     }
-?>
 
 
 <!-- fungsi fungsi -->
