@@ -1,13 +1,20 @@
 <?php
-
 $id = $_GET['id'];
 require_once "../../../function.php";
 
 // Fetch chapters for the manga
-// Fetch chapters for the manga
-$querypages = "SELECT * FROM pages WHERE chapter_id = '$id'";
-$resultpages = mysqli_query($koneksi, $querypages);
+$queryPages = "SELECT * FROM pages WHERE chapter_id = '$id'";
+$resultPages = mysqli_query($koneksi, $queryPages);
 
+$queryManga = "SELECT manga FROM chapters WHERE id = '$id'";
+$resultManga = mysqli_query($koneksi, $queryManga);
+$rowManga = mysqli_fetch_assoc($resultManga);
+$mangaId = $rowManga['manga'];
+
+$queryNextChapter = "SELECT id FROM chapters WHERE manga = '$mangaId' AND chapter_number > (
+    SELECT chapter_number FROM chapters WHERE id = '$id'
+) ORDER BY chapter_number ASC LIMIT 1";
+$resultNextChapter = mysqli_query($koneksi, $queryNextChapter);
 
 ?>
 
@@ -31,9 +38,10 @@ $resultpages = mysqli_query($koneksi, $querypages);
     <script src="https://kit.fontawesome.com/22dad4dcbd.js" crossorigin="anonymous"></script>
 
     <style>
-        .container{
+        .container {
             width: 850px;
         }
+
         .responsive-image {
             max-width: 100%;
             height: auto;
@@ -49,23 +57,31 @@ $resultpages = mysqli_query($koneksi, $querypages);
 
         <div class="bg-dark-1 text-center px-4 pt-4 pb-2 mb-3">
 
-            <!-- <img src="../../../assets/storage/mangas/100/Chapter_01/01.jpg" alt="page-1" class="responsive-image" > -->
             <?php
-            foreach ($resultpages as $page) {
+            while ($page = mysqli_fetch_assoc($resultPages)) {
             ?>
-             <img src="../../../assets/<?php echo $page['path']; ?>" alt="page-1" class="responsive-image">
-
-            <br>
-            <br>
+                <img src="../../../assets/<?php echo $page['path']; ?>" alt="page-1" class="responsive-image">
+                <br>
+                <br>
             <?php
             }
             ?>
 
+            <?php
+            $rowNextChapter = mysqli_fetch_assoc($resultNextChapter);
+            ?>
+
+            <?php if ($rowNextChapter) : ?>
+                <a href="komik.php?id=<?php echo $rowNextChapter['id']; ?>" class="btn btn-primary">Next</a>
+            <?php else : ?>
+                <p>Tidak ada chapter selanjutnya.</p>
+            <?php endif; ?>
+
         </div>
 
-    </main>
+        </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
 </html>

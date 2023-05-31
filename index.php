@@ -1,7 +1,7 @@
 <?php
 require_once "function.php";
 
-$query = "SELECT * FROM mangas"; //memanggil file yang ada di table mangas
+$query = "SELECT * FROM mangas ORDER BY created_at DESC"; //memanggil file yang ada di table mangas berdasarkan urutan waktu dari updated
 
 $result = mysqli_query($koneksi, $query);
 
@@ -66,6 +66,7 @@ $resultCount = mysqli_query($koneksi, $queryCount);
         <!-- {{-- carousel --}} -->
         <div class="owl-carousel owl-theme" id="one">
             <?php
+
             $counter = 0; // variabel counter untuk menghitung perulangan
             foreach ($result as $row) {
                 if ($counter < 3) { // batasan perulangan hanya 3 kali
@@ -97,91 +98,14 @@ $resultCount = mysqli_query($koneksi, $queryCount);
 
                         <!-- {{-- card pembaharuan --}} -->
                         <div class="card-grid">
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
-                                <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
-                                </div>
-                            </a>
 
+                            <a class="card" href="#">
+                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
+                                <div class="card__content">
+                                    <p class="card__category">Category</p>
+                                    <h3 class="card__heading">Example Card Heading</h3>
+                                </div>
+                            </a>
                         </div>
 
                         <br>

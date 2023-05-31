@@ -1,21 +1,24 @@
-<div class="superNav border-bottom py-2 bg-light">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
-                <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3" style="color: black"><strong>info@somedomain.com</strong></span>
-                <span class="me-3"><i class="fa-solid fa-phone me-1 text-warning"></i> <strong style="color: black">1-800-123-1234</strong></span>
-            </div>
+<form method="GET">
+    <div class="superNav border-bottom py-2 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 centerOnMobile">
+                    <span class="d-none d-lg-inline-block d-md-inline-block d-sm-inline-block d-xs-none me-3" style="color: black"><strong>info@somedomain.com</strong></span>
+                    <span class="me-3"><i class="fa-solid fa-phone me-1 text-warning"></i> <strong style="color: black">1-800-123-1234</strong></span>
+                </div>
 
-            <!-- {{-- fitur bahasa --}} -->
-            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
-                <select class="me-3 border-0 bg-light">
-                    <option value="english">English</option>
-                    <option value="indo">Indonesia</option>
-                </select>
+                <!-- {{-- fitur bahasa --}} -->
+                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12 d-none d-lg-block d-md-block-d-sm-block d-xs-none text-end">
+                    <select class="me-3 border-0 bg-light" name="filter-language">
+                        <option value="inggris">English</option>
+                        <option value="indonesia">Indonesia</option>
+                    </select>
+                    <input type="submit">
+                </div>
             </div>
         </div>
     </div>
-</div>
+</form>
 
 
 <nav class="navbar navbar-expand-lg navbar-dark p-3 bg-dark" id="neubar">
