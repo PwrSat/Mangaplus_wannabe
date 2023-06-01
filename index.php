@@ -1,13 +1,17 @@
 <?php
 require_once "function.php";
 
-$query = "SELECT * FROM mangas ORDER BY created_at DESC"; //memanggil file yang ada di table mangas berdasarkan urutan waktu dari updated
+$query = "SELECT b.title, b.id, b.banner, b.cover FROM chapters a INNER JOIN mangas b on a.manga = b.id ORDER BY a.created_at DESC"; //memanggil file yang ada di table mangas dan foreign di chapter berdasarkan urutan waktu dari updated
 
 $result = mysqli_query($koneksi, $query);
 
 $queryCount = "SELECT * FROM mangas ORDER BY count DESC";  //memanggil file yang ada di table mangas tetapi berurutan sesuai dengan jumlah count
 
 $resultCount = mysqli_query($koneksi, $queryCount);
+
+$queryWeekly = "SELECT * FROM mangas WHERE type ='weekly'";  //memanggil file yang ada di table mangas tetapi berurutan sesuai dengan jumlah count
+
+$resultWeekly = mysqli_query($koneksi, $queryWeekly);
 
 ?>
 <!DOCTYPE html>
@@ -98,14 +102,25 @@ $resultCount = mysqli_query($koneksi, $queryCount);
 
                         <!-- {{-- card pembaharuan --}} -->
                         <div class="card-grid">
+                        <?php
 
-                            <a class="card" href="#">
-                                <div class="card__background" style="background-image: url('assets/img/skyfamilyposter.jpg')"></div>
+                        $counterr = 0;
+                        foreach ($result as $roww){
+                            if ($counterr < 13) {
+                        ?>
+                            <a class="card" href="view/page/viewer/titles.php?id=<?php echo $roww['id']; ?>">
+                                <div class="card__background" style="background-image: url('assets/storage/cover/<?php echo$roww['cover'];?>')"></div>
                                 <div class="card__content">
-                                    <p class="card__category">Category</p>
-                                    <h3 class="card__heading">Example Card Heading</h3>
+                                    <h3 class="card__heading"><?php echo $roww['title'];?></h3>
                                 </div>
                             </a>
+                        <?php
+                             $counterr++;
+                            } else {
+                                break; // keluar dari perulangan setelah 3 kali
+                            }
+                        }
+                        ?>
                         </div>
 
                         <br>
