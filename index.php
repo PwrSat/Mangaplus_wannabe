@@ -1,17 +1,30 @@
 <?php
 require_once "function.php";
 
-$query = "SELECT b.title, b.id, b.banner, b.cover FROM chapters a INNER JOIN mangas b on a.manga = b.id ORDER BY a.created_at DESC"; //memanggil file yang ada di table mangas dan foreign di chapter berdasarkan urutan waktu dari updated
+$query = "SELECT DISTINCT b.title, b.id, b.banner, b.cover FROM chapters a INNER JOIN mangas b ON a.manga = b.id ORDER BY a.created_at DESC";
+// Mengambil data dari tabel 'chapters' dan 'mangas' dengan menggunakan INNER JOIN berdasarkan kolom 'manga' yang sama. Data diurutkan berdasarkan kolom 'created_at' secara menurun (DESC).
 
 $result = mysqli_query($koneksi, $query);
 
-$queryCount = "SELECT * FROM mangas ORDER BY count DESC";  //memanggil file yang ada di table mangas tetapi berurutan sesuai dengan jumlah count
+$queryCount = "SELECT * FROM mangas ORDER BY count DESC";
+// Mengambil semua data dari tabel 'mangas' dan mengurutkannya berdasarkan kolom 'count' secara menurun (DESC).
 
 $resultCount = mysqli_query($koneksi, $queryCount);
 
-$queryWeekly = "SELECT * FROM mangas WHERE type ='weekly'";  //memanggil file yang ada di table mangas tetapi berurutan sesuai dengan jumlah count
+$queryWeekly = "SELECT DISTINCT * FROM mangas WHERE type ='weekly'";
+// Mengambil data dari tabel 'mangas' yang memiliki nilai 'type' sama dengan 'weekly'. Data yang diambil tidak akan ganda (duplikat).
 
 $resultWeekly = mysqli_query($koneksi, $queryWeekly);
+
+$queryJump = "SELECT DISTINCT * FROM mangas WHERE type ='jump'";
+// Mengambil data dari tabel 'mangas' yang memiliki nilai 'type' sama dengan 'jump'. Data yang diambil tidak akan ganda (duplikat).
+
+$resultJump = mysqli_query($koneksi, $queryJump);
+
+$queryOther = "SELECT * FROM mangas";
+// Mengambil data dari tabel 'mangas'.
+
+$resultOther = mysqli_query($koneksi, $queryOther);
 
 ?>
 <!DOCTYPE html>
@@ -102,25 +115,25 @@ $resultWeekly = mysqli_query($koneksi, $queryWeekly);
 
                         <!-- {{-- card pembaharuan --}} -->
                         <div class="card-grid">
-                        <?php
+                            <?php
 
-                        $counterr = 0;
-                        foreach ($result as $roww){
-                            if ($counterr < 13) {
-                        ?>
-                            <a class="card" href="view/page/viewer/titles.php?id=<?php echo $roww['id']; ?>">
-                                <div class="card__background" style="background-image: url('assets/storage/cover/<?php echo$roww['cover'];?>')"></div>
-                                <div class="card__content">
-                                    <h3 class="card__heading"><?php echo $roww['title'];?></h3>
-                                </div>
-                            </a>
-                        <?php
-                             $counterr++;
-                            } else {
-                                break; // keluar dari perulangan setelah 3 kali
+                            $counterr = 0;
+                            foreach ($result as $row_2) {
+                                if ($counterr < 13) {
+                            ?>
+                                    <a class="card" href="view/page/viewer/titles.php?id=<?php echo $row_2['id']; ?>">
+                                        <div class="card__background" style="background-image: url('assets/storage/cover/<?php echo $row_2['cover']; ?>')"></div>
+                                        <div class="card__content">
+                                            <h3 class="card__heading"><?php echo $row_2['title']; ?></h3>
+                                        </div>
+                                    </a>
+                            <?php
+                                    $counterr++;
+                                } else {
+                                    break; // keluar dari perulangan setelah 3 kali
+                                }
                             }
-                        }
-                        ?>
+                            ?>
                         </div>
 
                         <br>
@@ -134,19 +147,22 @@ $resultWeekly = mysqli_query($koneksi, $queryWeekly);
                         <!-- {{-- card weekly --}} -->
 
                         <div class="owl-carousel owl-theme" id="two">
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
+                            <?php
+                            $counterrr = 0;
 
+                            foreach ($resultWeekly as $row_3) {
+                                if ($counterr < 13) {
+                            ?>
+                                    <a class="card" href="view/page/viewer/titles.php?id=<?php echo $row_3['id']; ?>">
+                                        <div class="card__background" style="background-image: url('assets/storage/cover/<?php echo $row_3['cover']; ?>')"></div>
+                                        <div class="card__content">
+                                            <h3 class="card__heading"><?php echo $row_3['title']; ?></h3>
+                                        </div>
+                                    </a>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
 
                         <br>
@@ -158,18 +174,22 @@ $resultWeekly = mysqli_query($koneksi, $queryWeekly);
                         <br>
 
                         <div class="owl-carousel owl-theme" id="three">
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
+                            <?php
+                            $counterrrr = 0;
+
+                            foreach ($resultJump as $row_4) {
+                                if ($counterrrr < 13) {
+                            ?>
+                                    <a class="card" href="view/page/viewer/titles.php?id=<?php echo $row_4['id']; ?>">
+                                        <div class="card__background" style="background-image: url('assets/storage/cover/<?php echo $row_4['cover']; ?>')"></div>
+                                        <div class="card__content">
+                                            <h3 class="card__heading"><?php echo $row_4['title']; ?></h3>
+                                        </div>
+                                    </a>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
 
                         <br>
@@ -181,18 +201,22 @@ $resultWeekly = mysqli_query($koneksi, $queryWeekly);
                         <br>
 
                         <div class="owl-carousel owl-theme" id="four">
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
-                            <div class="item"> <img src="assets/img/skyfamilyposter.jpg"></div>
+                        <?php
+                            $counterrrrr = 0;
+
+                            foreach ($resultOther as $row_5) {
+                                if ($counterrrrr < 13) {
+                            ?>
+                                    <a class="card" href="view/page/viewer/titles.php?id=<?php echo $row_5['id']; ?>">
+                                        <div class="card__background" style="background-image: url('assets/storage/cover/<?php echo $row_5['cover']; ?>')"></div>
+                                        <div class="card__content">
+                                            <h3 class="card__heading"><?php echo $row_5['title']; ?></h3>
+                                        </div>
+                                    </a>
+                            <?php
+                                }
+                            }
+                            ?>
                         </div>
 
                         <br>
@@ -231,7 +255,7 @@ $resultWeekly = mysqli_query($koneksi, $queryWeekly);
                             $count = 0;
                             if ($resultCount && mysqli_num_rows($resultCount) > 0) {
                                 foreach ($resultCount as $roww) {
-                                    if ($count >= 4) {
+                                    if ($count >= 8) {
                                         break; // Keluar dari perulangan setelah 4 kali perulangan
                                     }
                                     $count++;
