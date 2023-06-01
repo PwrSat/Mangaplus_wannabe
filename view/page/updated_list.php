@@ -2,7 +2,7 @@
 
 require_once "../../function.php";
 
-$queryCount = "SELECT DISTINCT b.title, b.id, b.cover, b.bahasa, b.author FROM chapters a INNER JOIN mangas b ON a.manga = b.id ORDER BY a.created_at DESC";
+$queryCount = "SELECT DISTINCT b.title, b.id, b.banner, b.cover, b.bahasa, b.author FROM chapters a INNER JOIN mangas b ON a.manga = b.id ORDER BY a.created_at DESC";
 // Mengambil data dari tabel 'chapters' dan 'mangas' dengan menggunakan INNER JOIN berdasarkan kolom 'manga' yang sama. Data diurutkan berdasarkan kolom 'created_at' secara menurun (DESC).
 
 $resultCount = mysqli_query($koneksi, $queryCount);

@@ -126,24 +126,24 @@ $resultOther = mysqli_query($koneksi, $queryOther);
             <div>
                 <h1 class="module-title horizontal-titlelist">OTHER</h1>
                 <div class="horizontal-module-titlelist">
-
+                    <div class="horizontal-itemlist">
                     <?php
-                    $counterrr = 0;
-                    while ($row_3 = mysqli_fetch_assoc($resultOther)) {
-                        if ($counterrr < 13) {
-                    ?>
-                            <a class="card" href="viewer/titles.php?id=<?php echo $row_3['id']; ?>">
-                                <div class="card__background" style="background-image: url('../../assets/storage/cover/<?php echo $row_3['cover']; ?>')"></div>
-                                <div class="card__content">
-                                    <h3 class="card__heading"><?php echo $row_3['title']; ?></h3>
-                                </div>
-                            </a>
-                    <?php
-                            $counterrr++;
+                        $counterrr = 0;
+                        while ($row_3 = mysqli_fetch_assoc($resultOther)) {
+                            if ($counterrr < 13) {
+                        ?>
+                                <a class="card" href="viewer/titles.php?id=<?php echo $row_3['id']; ?>">
+                                    <div class="card__background" style="background-image: url('../../assets/storage/cover/<?php echo $row_3['cover']; ?>')"></div>
+                                    <div class="card__content">
+                                        <h3 class="card__heading"><?php echo $row_3['title']; ?></h3>
+                                    </div>
+                                </a>
+                        <?php
+                                $counterrr++;
+                            }
                         }
-                    }
-                    ?>
-
+                        ?>
+                    </div>
 
                 </div>
             </div>

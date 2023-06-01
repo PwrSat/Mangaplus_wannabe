@@ -26,7 +26,6 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" integrity="sha512-tS3S5qG0BlhnQROyJXvNjeEM4UpMXHrQfTGmbQ1gKmelCxlSEBUaxhRBj/EFTzpbP4RVSrpEikbmdJobCvhE3g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -165,10 +164,11 @@ $resultChapters = mysqli_query($koneksi, $queryChapters);
                             ?>
                                 <div class="ChapterListItem-module_chapterListItem_ykICp" style="text-align: center;">
                                     <div class="ChapterListItem-module_chapterWrapper_3CxyE">
-                                        <a href="komik.php?id=<?php echo $chapter['id'] ?>">
+                                        <a href="komik.php?id=<?php echo $chapter['id'] ?>">    
                                             <p class="ChapterListItem-module_name_alreadyRead_1HYKk"><?php echo $chapter['chapter_number']; ?></p>
                                             <br>
                                             <p class="ChapterListItem-module_date_alreadyRead_31MGZ"><?php echo $chapter['updated_at']; ?></p>
+                                            <a href="comment.php?id=<?php echo $chapter['id'] ?>" class="ChapterListItem-module_commentContainer_1P6qt"><img src="../../../assets/img/btn_comment.svg" alt="commentIcon" class="ChapterListItem-module_commentIcon_3lw4k"></a>
                                         </a>
                                     </div>
                                 </div>

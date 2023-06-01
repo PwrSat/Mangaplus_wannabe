@@ -16,6 +16,8 @@ $queryNextChapter = "SELECT id FROM chapters WHERE manga = '$mangaId' AND chapte
 ) ORDER BY chapter_number ASC LIMIT 1";
 $resultNextChapter = mysqli_query($koneksi, $queryNextChapter);
 
+$queryComment = "SELECT ";
+
 ?>
 
 <!DOCTYPE html>
@@ -76,6 +78,12 @@ $resultNextChapter = mysqli_query($koneksi, $queryNextChapter);
             <?php else : ?>
                 <p>Tidak ada chapter selanjutnya.</p>
             <?php endif; ?>
+
+            <a href="komik.php?id=<?php echo $rowNextChapter['id']; ?>">
+            comment
+            </a>
+            
+
 
         </div>
 

@@ -34,9 +34,9 @@
 
     <!-- {{-- carousel --}} -->
     <div class="owl-carousel owl-theme" id="one">
-      <div class="item"> <img src="{{ asset('img/img1.jpg') }}"></div>
-      <div class="item"> <img src="{{ asset('img/img2.jpg') }}"></div>
-      <div class="item"> <img src="{{ asset('img/img3.jpg') }}"></div>
+      <div class="item"> 
+        <img src="{{ asset('img/img1.jpg') }}">
+      </div>
     </div>
 
     <!-- {{-- pembaharuan harian --}} -->
