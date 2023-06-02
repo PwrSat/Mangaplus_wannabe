@@ -75,14 +75,15 @@ $queryComment = "SELECT ";
 
             <?php if ($rowNextChapter) : ?>
                 <a href="komik.php?id=<?php echo $rowNextChapter['id']; ?>" class="btn btn-primary">Next</a>
+                <br>
             <?php else : ?>
                 <p>Tidak ada chapter selanjutnya.</p>
             <?php endif; ?>
 
-            <a href="komik.php?id=<?php echo $rowNextChapter['id']; ?>">
-            comment
+            <a href="comment.php?id=<?php echo $rowNextChapter['id']-1; ?>">
+                comment
             </a>
-            
+
 
 
         </div>
