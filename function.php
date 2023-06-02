@@ -9,7 +9,7 @@ if (!isset($_SESSION)) {
 $host = 'localhost';
 $user = 'root';
 $pass = '';
-$database = 'sbd2';
+$database = 'oke';
 
 $koneksi = mysqli_connect($host, $user, $pass, $database);
 
@@ -129,7 +129,6 @@ function login($data)
             </script>";
     }
 }
-
 
 function forget($data, $konemail)
 {

@@ -1,10 +1,6 @@
 <?php
 require_once "../function.php";
 
-if (empty($_SESSION['id_user'])) {
-    header("Location::../index.php");
-    echo "Anda sudah login";
-}
 
 if (isset($_POST["btnregister"])) {
     register($_POST);
