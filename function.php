@@ -3,19 +3,19 @@
 <!-- database -->
 
 <?php
-    if(!isset($_SESSION)){
-        session_start();
-    }
-    $host = 'localhost';
-    $user = 'root';
-    $pass = '';
-    $database = 'sbd2';
+if (!isset($_SESSION)) {
+    session_start();
+}
+$host = 'localhost';
+$user = 'root';
+$pass = '';
+$database = 'sbd2';
 
-    $koneksi = mysqli_connect($host,$user,$pass,$database);
+$koneksi = mysqli_connect($host, $user, $pass, $database);
 
-    if ($koneksi->connect_error){
-        die("Koneksi gagal ".$koneksi->connect_error);
-    }
+if ($koneksi->connect_error) {
+    die("Koneksi gagal " . $koneksi->connect_error);
+}
 ?>
 
 
@@ -68,16 +68,17 @@ function register($data)
              document.location.href = 'register.php';
          </script> ";
     } else {
-        mysqli_query($koneksi, "INSERT INTO users ( username, email, password) VALUES ( '$username', '$email', '$password')");
+        $hashed_password = password_hash($password, PASSWORD_DEFAULT);
+        mysqli_query($koneksi, "INSERT INTO users (username, email, password) VALUES ('$username', '$email', '$hashed_password')");
         echo "
-    <script>
-        alert('Registrasi Akun Berhasil');
-        document.location.href = 'index.php';
-    </script>";
-        header("Location:login.php");
+        <script>
+            alert('Registrasi Akun Berhasil');
+            document.location.href = 'index.php';
+        </script>";
+        header("Location: login.php");
     }
-
 }
+
 
 function login($data)
 {
@@ -113,31 +114,66 @@ function login($data)
     }
     if (($email_login == $email) && $pass_login == $pass) {
         echo
-            "<script>
+        "<script>
                     alert('Selamat kamu telah login');
-                    document.location.href = '../view/page/favorite.php';
+                    document.location.href = 'index.php';
             </script>";
-            
+
         $_SESSION['email'] = $email;
         $_SESSION['username'] = $user;
         $_SESSION['id_user'] = $id_user;
-        
     } else {
         echo
-            "<script>
+        "<script>
             alert('User tidak ditemukan');
             </script>";
     }
 }
 
 
+function forget($data, $konemail)
+{
+    global $koneksi;
+    $pass = $data['password'];
+    $konpass = $data['konpas'];
+
+
+
+    if ($pass !== $konpass) {
+        echo "
+        <script>
+        alert('Konfirmasi password harus sama!');
+        document.location.href = '';
+                    </script>
+                    ";
+    } else {
+        $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+        $ganti = "UPDATE users SET password = '$pass' where email = '$konemail'";
+        if ($koneksi->query($ganti) === TRUE) {
+            echo "
+                        <script>
+                            alert('password berhasil dirubah');
+                            document.location.href = 'login.php';
+                        </script>";
+        } else {
+            echo "
+                        <script>
+                            alert('password gagal dirubah');
+                            document.location.href = 'login.php';
+                        </script>";
+        }
+    }
+}
+
 ?>
 
 
 <?php
 
-function favorite($data){
-    global $koneksi; 
+function favorite($data)
+{
+    global $koneksi;
     // var_dump($data); die;
 
     $uid = $data["user_id"];
@@ -157,11 +193,8 @@ function favorite($data){
             document.location.href = '';
         </script>";
     }
+}
 
-    }
 ?>
 
-
-
 <!-- fungsi fungsi -->
-

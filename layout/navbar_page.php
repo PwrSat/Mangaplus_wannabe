@@ -49,7 +49,7 @@
                     <a class="nav-link mx-2 text-uppercase" href="view/page/daftar.php">Daftar</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link mx-2 text-uppercase" href="view/creator/maincreators.php">Creators</a>
+                    <a class="nav-link mx-2 text-uppercase" href="view/page/genre.php">Genre</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link mx-2 text-uppercase" href="view/page/favorite.php">Favorite</a>

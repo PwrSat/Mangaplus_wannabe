@@ -1,5 +1,11 @@
 <?php
 require_once "../function.php";
+
+if (empty($_SESSION['id_user'])) {
+    header("Location::../index.php");
+    echo "Anda sudah login";
+}
+
 if (isset($_POST["btnregister"])) {
     register($_POST);
 }
@@ -67,6 +73,7 @@ if (isset($_POST["btnregister"])) {
                 x.type = "password";
             }
         }
+
         function showkonpass() {
             var x = document.getElementById("konpassinput");
             if (x.type === "password") {

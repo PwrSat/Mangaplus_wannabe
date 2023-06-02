@@ -83,7 +83,7 @@ if(empty($_SESSION['id_user'])){
           ?>
           <div class="SubscribedTitle-module_contents_2S_dW">
             <div class="SubscribedTitle-module_lang_pivm4">
-              <span title="English">en</span>
+              <span title="English"><?= $favorit['bahasa'] ?></span>
             </div>
             <div class="SubscribedTitle-module_imgWrapper_usHUo">
               <a href="/titles/100235">

@@ -1,5 +1,11 @@
 <?php
 require_once "../function.php";
+
+if (empty($_SESSION['id_user'])) {
+    header("Location:../index.php");
+    echo "Anda sudah login";
+}
+
 if (isset($_POST["btnlogin"])) {
     login($_POST);
 }
@@ -32,8 +38,7 @@ if (isset($_POST["btnlogin"])) {
                     </div>
 
                     <div class="field input-field">
-                        <input type="password" placeholder="Password" class="password" name="password" id="passinput"
-                            required>
+                        <input type="password" placeholder="Password" class="password" name="password" id="passinput" required>
                         <i class='bx bx-hide eye-icon' onclick="showpass()"></i>
                     </div>
 
